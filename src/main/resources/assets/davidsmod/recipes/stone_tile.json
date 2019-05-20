@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		"SS ",
+		"SS "
+	],
+	"key": {
+		"S": {"item": "minecraft:stonebrick", "data": 0}
+	},
+	"result": {"item": "davidsmod:stone_tile", "count": 4}
+}

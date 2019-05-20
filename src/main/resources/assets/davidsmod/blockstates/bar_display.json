@@ -1,0 +1,26 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "orientable",
+		"textures": {
+			"top": "davidsmod:block/machine_block",
+			"side": "davidsmod:block/machine_block"
+		}
+	},
+	"variants": {
+		"display": {
+			"0": {"textures": {"front": "davidsmod:block/bar_display_0"}},
+			"1": {"textures": {"front": "davidsmod:block/bar_display_1"}},
+			"2": {"textures": {"front": "davidsmod:block/bar_display_2"}},
+			"3": {"textures": {"front": "davidsmod:block/bar_display_3"}},
+			"4": {"textures": {"front": "davidsmod:block/bar_display_4"}}
+		},
+		"facing": {
+			"north": {},
+			"south": {"y": 180},
+			"west": {"y": 270},
+			"east": {"y": 90}
+		},
+		"inventory": [{"textures": {"front": "davidsmod:block/bar_display_0"}}]
+	}
+}

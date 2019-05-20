@@ -1,0 +1,13 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"SSS",
+		"SRS",
+		"SSS"
+	],
+	"key": {
+		"S": {"type": "forge:ore_dict", "ore": "cobblestone"},
+		"R": {"type": "forge:ore_dict", "ore": "dustRedstone"}
+	},
+	"result": {"item": "davidsmod:machine_block"}
+}

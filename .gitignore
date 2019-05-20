@@ -1,0 +1,10 @@
+/run/
+/bin/
+/build/
+/.gradle/
+/.settings/
+/davidsmod_Client.launch
+/davidsmod_Server.launch
+/.classpath
+/.project
+.DS_Store

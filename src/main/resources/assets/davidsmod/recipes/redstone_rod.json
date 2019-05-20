@@ -1,0 +1,13 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		" R ",
+		" I ",
+		" I "
+	],
+	"key": {
+		"R": {"type": "forge:ore_dict", "ore": "dustRedstone"},
+		"I": {"type": "forge:ore_dict", "ore": "ingotIron"}
+	},
+	"result": {"item": "davidsmod:redstone_rod", "count": 4}
+}

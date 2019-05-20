@@ -1,0 +1,14 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"GGG",
+		"RIR",
+		"GGG"
+	],
+	"key": {
+		"G": {"type": "forge:ore_dict", "ore": "dyeGreen"},
+		"R": {"type": "forge:ore_dict", "ore": "dustRedstone"},
+		"I": {"type": "forge:ore_dict", "ore": "ingotIron"}
+	},
+	"result": {"item": "davidsmod:display_module"}
+}

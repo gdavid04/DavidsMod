@@ -1,0 +1,24 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "davidsmod:item/redstone_meter_with_display"
+	},
+	"overrides": [
+		{"predicate": {"display": 1}, "model": "davidsmod:item/redstone_meter_with_display_0"},
+		{"predicate": {"display": 2}, "model": "davidsmod:item/redstone_meter_with_display_1"},
+		{"predicate": {"display": 3}, "model": "davidsmod:item/redstone_meter_with_display_2"},
+		{"predicate": {"display": 4}, "model": "davidsmod:item/redstone_meter_with_display_3"},
+		{"predicate": {"display": 5}, "model": "davidsmod:item/redstone_meter_with_display_4"},
+		{"predicate": {"display": 6}, "model": "davidsmod:item/redstone_meter_with_display_5"},
+		{"predicate": {"display": 7}, "model": "davidsmod:item/redstone_meter_with_display_6"},
+		{"predicate": {"display": 8}, "model": "davidsmod:item/redstone_meter_with_display_7"},
+		{"predicate": {"display": 9}, "model": "davidsmod:item/redstone_meter_with_display_8"},
+		{"predicate": {"display": 10}, "model": "davidsmod:item/redstone_meter_with_display_9"},
+		{"predicate": {"display": 11}, "model": "davidsmod:item/redstone_meter_with_display_a"},
+		{"predicate": {"display": 12}, "model": "davidsmod:item/redstone_meter_with_display_b"},
+		{"predicate": {"display": 13}, "model": "davidsmod:item/redstone_meter_with_display_c"},
+		{"predicate": {"display": 14}, "model": "davidsmod:item/redstone_meter_with_display_d"},
+		{"predicate": {"display": 15}, "model": "davidsmod:item/redstone_meter_with_display_e"},
+		{"predicate": {"display": 16}, "model": "davidsmod:item/redstone_meter_with_display_f"}
+	]
+}

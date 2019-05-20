@@ -1,0 +1,10 @@
+{
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:input_module"},
+		{"item": "minecraft:stone_button"},
+		{"type": "forge:ore_dict", "ore": "dustRedstone"},
+		{"type": "forge:ore_dict", "ore": "ingotIron"}
+	],
+	"result": {"item": "davidsmod:tier2_input_module"}
+}

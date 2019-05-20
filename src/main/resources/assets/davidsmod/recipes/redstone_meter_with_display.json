@@ -1,0 +1,9 @@
+{
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:redstone_meter"},
+		{"item": "davidsmod:display_module"},
+		{"type": "forge:ore_dict", "ore": "dustRedstone"}
+	],
+	"result": {"item": "davidsmod:redstone_meter_with_display"}
+}

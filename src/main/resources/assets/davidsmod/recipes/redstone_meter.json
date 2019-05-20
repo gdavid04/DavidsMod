@@ -1,0 +1,14 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"B B",
+		"IRI",
+		"III"
+	],
+	"key": {
+		"B": {"item": "minecraft:iron_bars"},
+		"I": {"type": "forge:ore_dict", "ore": "ingotIron"},
+		"R": {"type": "forge:ore_dict", "ore": "dustRedstone"}
+	},
+	"result": {"item": "davidsmod:redstone_meter"}
+}

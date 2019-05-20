@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"TTT",
+		"TCT",
+		"TTT"
+	],
+	"key": {
+		"T": {"item": "minecraft:redstone_torch"},
+		"C": {"item": "davidsmod:basic_display_module"}
+	},
+	"result": {"item": "davidsmod:display_module"}
+}

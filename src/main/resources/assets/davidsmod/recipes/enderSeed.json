@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"EEE",
+		"EWE",
+		"EEE"
+	],
+	"key": {
+		"E": {"item": "minecraft:ender_pearl"},
+		"W": {"item": "minecraft:wheat"}
+	},
+	"result": {"item": "davidsmod:ender_seed"}
+}

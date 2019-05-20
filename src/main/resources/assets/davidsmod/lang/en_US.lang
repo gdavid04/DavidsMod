@@ -1,0 +1,61 @@
+#PARSE_ESCAPES
+
+itemGroup.davidsmod=David's mod
+
+item.davidsmod\:redstone_meter.name=Redstone meter
+item.davidsmod\:redstone_meter.report=This face of the block has %s of 15 units of power.
+item.davidsmod\:redstone_meter.nopower=This face of the block isn't powered.
+item.davidsmod\:redstone_meter_with_display.name=Redstone meter with display
+
+item.davidsmod\:module_base.name=Module base
+item.davidsmod\:basic_display_module.name=Basic display module
+item.davidsmod\:display_module.name=Display module
+item.davidsmod\:input_module.name=Input module
+item.davidsmod\:tier2_input_module.name=Tier 2 input module
+
+item.davidsmod\:bot_programmer.name=Bot programmer
+
+item.davidsmod\:ender_seed.name=Ender seed
+
+tile.davidsmod\:stone_tile.name=Stone tile
+
+tile.davidsmod\:fossils.name=Fossils
+
+tile.davidsmod\:machine_block.name=Machine block
+
+tile.davidsmod\:7seg_display.name=7 segment display
+tile.davidsmod\:bar_display.name=Bar display
+
+tile.davidsmod\:redstone_rod.name=Redstone rod
+
+tile.davidsmod\:charged_iron_block.name=Charged iron block
+
+tile.davidsmod\:charged_rock.name=Charged rock
+
+gdavid.davidsmod\:piece.category.targetting.desc=\
+	§6Targetting\n\
+	§fCommands and modifiers\n\
+	used to control the targetting\n\
+	system of the bot.
+gdavid.davidsmod\:piece.category.movement.desc=\
+	§6Movement\n\
+	§fCommands used to control\n\
+	the movement of the bot.
+gdavid.davidsmod\:piece.category.interaction.desc=\
+	§6Interaction\n\
+	§fCommands used to make\n\
+	the bot interact with\n\
+	the world.
+gdavid.davidsmod\:piece.category.identification.desc=\
+	§6Identification\n\
+	§fModifiers used to target\n\
+	objects more accurately.
+gdavid.davidsmod\:piece.category.state.desc=\
+	§6State\n\
+	§fCommands and modifiers used to\n\
+	query and alter the internal\n\
+	state machine of the bot.
+gdavid.davidsmod\:piece.category.boosters.desc=\
+	§6Boosters\n\
+	§fModifiers used to enhance\n\
+	various abilities of the bot.

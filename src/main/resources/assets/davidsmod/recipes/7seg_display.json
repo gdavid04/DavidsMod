@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:machine_block"},
+		{"item": "davidsmod:display_module"}
+	],
+	"result": {"item": "davidsmod:7seg_display"}
+}

@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "davidsmod:redstone_rod",
+		"textures": {
+			"tex": "davidsmod:block/redstone_rod_off"
+		}
+	},
+	"variants": {
+		"powered": {
+			"false": {"textures": {"tex": "davidsmod:block/redstone_rod_off"}},
+			"true": {"textures": {"tex": "davidsmod:block/redstone_rod_on"}}
+		},
+		"facing": {
+			"down": {},
+			"up": { "x": 180 },
+			"west": { "y": 90, "x": 90 },
+			"north": { "y": 180, "x": 90 },
+			"east": { "y": 270, "x": 90 },
+			"south": { "y": 0, "x": 90 }
+		},
+		"inventory": [{"textures": {"tex": "davidsmod:block/redstone_rod_on"}}]
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "davidsmod:item/redstone_meter_with_display_8"
+	}
+}
