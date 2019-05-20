@@ -22,8 +22,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiBotProgrammer extends GuiScreen {
 	
-	// TODO tabs and editing
-	
 	static final ResourceLocation tex = new ResourceLocation(DavidsMod.modID, "textures/gui/bot_programmer.png");
 	
 	int w, h, x, y;
@@ -39,9 +37,11 @@ public class GuiBotProgrammer extends GuiScreen {
 	
 	int tab_page = 0;
 	PieceCategory tab;
+	int catalog_page = 0;
 	
 	List<PieceCategory> tabs = DavidsModRegistries.pieceCategory.getValues();
 	int tab_page_count = tabs.size() / tab_count + (tabs.size() % tab_count == 0 ? 0 : 1);
+	int catalog_page_count;
 	
 	public GuiBotProgrammer(EntityPlayer player, EnumHand hand) {
 		this.player = player;
@@ -53,6 +53,7 @@ public class GuiBotProgrammer extends GuiScreen {
 			program = new Program();
 		}
 		tab = tabs.get(0);
+		catalog_page_count = (tab.pieces.size() + tab.mods.size()) / (catalog_w * catalog_h) + ((tab.pieces.size() + tab.mods.size()) % (catalog_w * catalog_h) == 0 ? 0 : 1);
 	}
 	
 	@Override
@@ -219,6 +220,62 @@ public class GuiBotProgrammer extends GuiScreen {
 			);
 			mc.getTextureManager().bindTexture(tex);
 		}
+		if (catalog_page > 0) {
+			drawTexturedModalRect(
+				catalog_scroll_left + this.x, catalog_scroll_oy + this.y,
+				catalog_scroll_xl, catalog_scroll_y + (
+					inside(mx, my, catalog_scroll_left, catalog_scroll_oy, catalog_scroll_w, catalog_scroll_h) ?
+					catalog_scroll_h : 0
+				),
+				catalog_scroll_w, catalog_scroll_h
+			);
+		}
+		if (catalog_page < catalog_page_count - 1) {
+			drawTexturedModalRect(
+				catalog_scroll_right + this.x, catalog_scroll_oy + this.y,
+				catalog_scroll_xr, catalog_scroll_y + (
+					inside(mx, my, catalog_scroll_right, catalog_scroll_oy, catalog_scroll_w, catalog_scroll_h) ?
+					catalog_scroll_h : 0
+				),
+				catalog_scroll_w, catalog_scroll_h
+			);
+		}
+		catalog:
+		for (int cy = 0; cy < catalog_h; cy++) {
+			for (int cx = 0; cx < catalog_w; cx++) {
+				int n = cx + cy * catalog_w + catalog_page * catalog_w * catalog_h;
+				if (n >= tab.pieces.size() + tab.mods.size()) {
+					break catalog;
+				}
+				if (n >= tab.pieces.size()) {
+					mc.getTextureManager().bindTexture(tab.mods.get(n - tab.pieces.size()).getTextureLocation());
+					ScaledDrawFull(
+						catalog_mod_ox + catalog_x + (piece_w + 1) * cx + this.x, catalog_mod_oy + catalog_y + (piece_h + 1) * cy + this.y,
+						mod_w, mod_h
+					);
+					mc.getTextureManager().bindTexture(tex);
+					if (inside(mx, my, catalog_mod_ox + catalog_x + (piece_w + 1) * cx, catalog_mod_oy + catalog_y + (piece_h + 1) * cy, mod_w, mod_h)) {
+						drawTexturedModalRect(
+							catalog_mod_ox + catalog_x + (piece_w + 1) * cx + this.x - 1, catalog_mod_oy + catalog_y + (piece_h + 1) * cy + this.y - 1,
+							hover_mod_x, hover_mod_y, mod_w + 2, mod_h + 2
+						);
+					}
+				} else {
+					mc.getTextureManager().bindTexture(tab.pieces.get(n).getTextureLocation());
+					ScaledDrawFull(
+						catalog_x + (piece_w + 1) * cx + this.x, catalog_y + (piece_h + 1) * cy + this.y,
+						piece_w, piece_h
+					);
+					mc.getTextureManager().bindTexture(tex);
+					if (inside(mx, my, catalog_x + (piece_w + 1) * cx, catalog_y + (piece_h + 1) * cy, piece_w, piece_h)) {
+						drawTexturedModalRect(
+							catalog_x + (piece_w + 1) * cx + this.x - 1, catalog_y + (piece_h + 1) * cy + this.y - 1,
+							hover_piece_x, hover_piece_y, piece_w + 2, piece_h + 2
+						);
+					}
+				}
+			}
+		}
 		if (hover) {
 			if (hover_mod == PIECE) {
 				Piece piece = program.pieces[hover_process][hover_step];
@@ -237,6 +294,28 @@ public class GuiBotProgrammer extends GuiScreen {
 			if (inside(mx, my, tabs_x, tabs_y + t * tab_h, tab_w, tab_h)) {
 				drawHoveringText(Arrays.asList(ctab.getDescription().getFormattedText().split("\n")), mouseX, mouseY);
 				break;
+			}
+		}
+		catalog:
+		for (int cy = 0; cy < catalog_h; cy++) {
+			for (int cx = 0; cx < catalog_w; cx++) {
+				int n = cx + cy * catalog_w + catalog_page * catalog_w * catalog_h;
+				if (n >= tab.pieces.size() + tab.mods.size()) {
+					break catalog;
+				}
+				if (n >= tab.pieces.size()) {
+					if (inside(mx, my, catalog_mod_ox + catalog_x + (piece_w + 1) * cx, catalog_mod_oy + catalog_y + (piece_h + 1) * cy, mod_w, mod_h)) {
+						PieceMod piecemod = tab.mods.get(n - tab.pieces.size());
+						drawHoveringText(Arrays.asList(piecemod.getDescription().getFormattedText().split("\n")), mouseX, mouseY);
+						break catalog;
+					}
+				} else {
+					if (inside(mx, my, catalog_x + (piece_w + 1) * cx, catalog_y + (piece_h + 1) * cy, piece_w, piece_h)) {
+						Piece piece = tab.pieces.get(n);
+						drawHoveringText(Arrays.asList(piece.getDescription().getFormattedText().split("\n")), mouseX, mouseY);
+						break catalog;
+					}
+				}
 			}
 		}
 	}
@@ -260,7 +339,42 @@ public class GuiBotProgrammer extends GuiScreen {
 		for (int t = 0; t < tab_count && tab_page * tab_count + t < tabs.size(); t++) {
 			if (inside(x, y, tabs_x, tabs_y + t * tab_h, tab_w, tab_h)) {
 				tab = tabs.get(tab_page * tab_count + t);
+				catalog_page = 0;
+				catalog_page_count = (tab.pieces.size() + tab.mods.size()) / (catalog_w * catalog_h) + ((tab.pieces.size() + tab.mods.size()) % (catalog_w * catalog_h) == 0 ? 0 : 1);
 				break;
+			}
+		}
+		if (catalog_page > 0 && inside(x, y, catalog_scroll_left, catalog_scroll_oy, catalog_scroll_w, catalog_scroll_h)) {
+			catalog_page--;
+		}
+		if (catalog_page < catalog_page_count - 1 && inside(x, y, catalog_scroll_right, catalog_scroll_oy, catalog_scroll_w, catalog_scroll_h)) {
+			catalog_page++;
+		}
+		if (selected) {
+			catalog:
+			for (int cy = 0; cy < catalog_h; cy++) {
+				for (int cx = 0; cx < catalog_w; cx++) {
+					int n = cx + cy * catalog_w + catalog_page * catalog_w * catalog_h;
+					if (n >= tab.pieces.size() + tab.mods.size()) {
+						break catalog;
+					}
+					if (n >= tab.pieces.size()) {
+						if (selected_mod != PIECE) {
+							break catalog;
+						}
+						if (inside(x, y, catalog_mod_ox + catalog_x + (piece_w + 1) * cx, catalog_mod_oy + catalog_y + (piece_h + 1) * cy, mod_w, mod_h)) {
+							setPiece(selected_process, selected_step, tab.mods.get(n - tab.pieces.size()).getRegistryName());
+							break catalog;
+						}
+					} else {
+						if (inside(x, y, catalog_x + (piece_w + 1) * cx, catalog_y + (piece_h + 1) * cy, piece_w, piece_h)) {
+							if (selected_mod != PIECE) {
+								setMod(selected_process, selected_step, selected_mod, tab.pieces.get(n).getRegistryName());
+							}
+							break catalog;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -310,6 +424,13 @@ public class GuiBotProgrammer extends GuiScreen {
 	static final int tab_scroll_px = 195, tab_scroll_py_up = 1, tab_scroll_py_down = 145;
 	static final int tab_icon_x = 10, tab_active_icon_x = 19, tab_icon_y = 3, tab_icon_w = 11, tab_icon_h = 11;
 	static final int tabs_x = 184, tabs_y = 8, tab_h = 17, tab_w = 33, tab_count = 8;
+	
+	static final int catalog_x = 118, catalog_y = 8;
+	static final int catalog_w = 3, catalog_h = 5;
+	static final int catalog_mod_ox = 5, catalog_mod_oy = 7;
+	static final int catalog_scroll_left = 121, catalog_scroll_right = 172, catalog_scroll_oy = 135;
+	static final int catalog_scroll_xl = 101, catalog_scroll_xr = 107, catalog_scroll_y = 155;
+	static final int catalog_scroll_w = 6, catalog_scroll_h = 10;
 	
 	void setPiece(int process, int step, ResourceLocation id) {
 		// TODO packet stuff
