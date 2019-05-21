@@ -10,6 +10,8 @@ import gdavid.davidsmod.api.bots.PieceCategory;
 import gdavid.davidsmod.api.bots.PieceMod;
 import gdavid.davidsmod.api.bots.Program;
 import gdavid.davidsmod.item.ModItems;
+import gdavid.davidsmod.network.PacketHandler;
+import gdavid.davidsmod.network.message.PacketBotProgrammerSetPiece;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -48,12 +50,17 @@ public class GuiBotProgrammer extends GuiScreen {
 		this.hand = hand;
 		ItemStack stack = player.getHeldItem(hand);
 		if (stack.hasTagCompound()) {
-			program = Program.fromNbt(stack.getTagCompound().getTagList("program", 9));
+			program = Program.fromNbt(stack.getTagCompound().getCompoundTag("program"));
 		} else {
 			program = new Program();
 		}
 		tab = tabs.get(0);
 		catalog_page_count = (tab.pieces.size() + tab.mods.size()) / (catalog_w * catalog_h) + ((tab.pieces.size() + tab.mods.size()) % (catalog_w * catalog_h) == 0 ? 0 : 1);
+	}
+	
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
 	}
 	
 	@Override
@@ -66,7 +73,7 @@ public class GuiBotProgrammer extends GuiScreen {
             }
 		}
 		if (stack.hasTagCompound()) {
-			program = Program.fromNbt(stack.getTagCompound().getTagList("program", 9));
+			program = Program.fromNbt(stack.getTagCompound().getCompoundTag("program"));
 		} else {
 			program = new Program();
 		}
@@ -359,17 +366,17 @@ public class GuiBotProgrammer extends GuiScreen {
 						break catalog;
 					}
 					if (n >= tab.pieces.size()) {
-						if (selected_mod != PIECE) {
+						if (selected_mod == PIECE) {
 							break catalog;
 						}
 						if (inside(x, y, catalog_mod_ox + catalog_x + (piece_w + 1) * cx, catalog_mod_oy + catalog_y + (piece_h + 1) * cy, mod_w, mod_h)) {
-							setPiece(selected_process, selected_step, tab.mods.get(n - tab.pieces.size()).getRegistryName());
+							setMod(selected_process, selected_step, selected_mod, tab.mods.get(n - tab.pieces.size()));
 							break catalog;
 						}
 					} else {
 						if (inside(x, y, catalog_x + (piece_w + 1) * cx, catalog_y + (piece_h + 1) * cy, piece_w, piece_h)) {
-							if (selected_mod != PIECE) {
-								setMod(selected_process, selected_step, selected_mod, tab.pieces.get(n).getRegistryName());
+							if (selected_mod == PIECE) {
+								setPiece(selected_process, selected_step, tab.pieces.get(n));
 							}
 							break catalog;
 						}
@@ -432,12 +439,12 @@ public class GuiBotProgrammer extends GuiScreen {
 	static final int catalog_scroll_xl = 101, catalog_scroll_xr = 107, catalog_scroll_y = 155;
 	static final int catalog_scroll_w = 6, catalog_scroll_h = 10;
 	
-	void setPiece(int process, int step, ResourceLocation id) {
-		// TODO packet stuff
+	void setPiece(int process, int step, Piece piece) {
+		PacketHandler.instance.sendToServer(new PacketBotProgrammerSetPiece(hand, process, step, piece.getRegistryName().toString()));
 	}
 	
-	void setMod(int process, int step, int mod, ResourceLocation id) {
-		// TODO packet stuff
+	void setMod(int process, int step, int mod, PieceMod piecemod) {
+		PacketHandler.instance.sendToServer(new PacketBotProgrammerSetPiece(hand, process, step, mod, piecemod.getRegistryName().toString()));
 	}
 	
 	void ScaledDrawFull(int x, int y, int w, int h) {

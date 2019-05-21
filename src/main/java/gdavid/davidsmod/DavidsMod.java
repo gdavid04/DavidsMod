@@ -10,6 +10,7 @@ import gdavid.davidsmod.bots.ModPieceMods;
 import gdavid.davidsmod.bots.ModPieces;
 import gdavid.davidsmod.gui.GuiHandler;
 import gdavid.davidsmod.item.ModItems;
+import gdavid.davidsmod.network.PacketHandler;
 import gdavid.davidsmod.proxy.CommonProxy;
 import gdavid.davidsmod.tab.TabDavidsmod;
 import gdavid.davidsmod.world.WorldGenerator;
@@ -58,6 +59,7 @@ public class DavidsMod {
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		proxy.registerHandlers();
+		PacketHandler.RegisterPackets();
 		GameRegistry.registerWorldGenerator(new WorldGenerator(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}

@@ -32,4 +32,9 @@ public class ItemBotProgrammer extends Item {
 		return false; // TODO upload to bot, cancel
 	}
 	
+	@Override
+	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+		return !ItemStack.areItemsEqual(oldStack, newStack);
+	}
+	
 }
