@@ -1,5 +1,6 @@
 package gdavid.davidsmod.gui;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -386,6 +387,20 @@ public class GuiBotProgrammer extends GuiScreen {
 		}
 	}
 	
+	@Override
+	protected void keyTyped(char typedChar, int keyCode) throws IOException {
+		if (keyCode == 14 || keyCode == 211 && selected) {
+			if (selected_mod == PIECE) {
+				if (program.pieces[selected_process][selected_step] != null) {
+					setPiece(selected_process, selected_step, null);
+				}
+			} else if (program.mods[selected_process][selected_step][selected_mod] != null) {
+				setMod(selected_process, selected_step, selected_mod, null);
+			}
+		}
+		super.keyTyped(typedChar, keyCode);
+	}
+	
 	static boolean inside(int x, int y, int bx, int by, int w, int h) {
 		return bx <= x && by <= y && x - bx <= w && y - by <= h;
 	}
@@ -440,11 +455,11 @@ public class GuiBotProgrammer extends GuiScreen {
 	static final int catalog_scroll_w = 6, catalog_scroll_h = 10;
 	
 	void setPiece(int process, int step, Piece piece) {
-		PacketHandler.instance.sendToServer(new PacketBotProgrammerSetPiece(hand, process, step, piece.getRegistryName().toString()));
+		PacketHandler.instance.sendToServer(new PacketBotProgrammerSetPiece(hand, process, step, piece == null ? "" : piece.getRegistryName().toString()));
 	}
 	
 	void setMod(int process, int step, int mod, PieceMod piecemod) {
-		PacketHandler.instance.sendToServer(new PacketBotProgrammerSetPiece(hand, process, step, mod, piecemod.getRegistryName().toString()));
+		PacketHandler.instance.sendToServer(new PacketBotProgrammerSetPiece(hand, process, step, mod, piecemod == null ? "" : piecemod.getRegistryName().toString()));
 	}
 	
 	void ScaledDrawFull(int x, int y, int w, int h) {

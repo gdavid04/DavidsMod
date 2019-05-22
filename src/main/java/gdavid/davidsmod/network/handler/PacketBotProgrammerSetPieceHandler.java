@@ -36,9 +36,9 @@ public class PacketBotProgrammerSetPieceHandler implements IMessageHandler<Packe
 				}
 				Program program = Program.fromNbt(nbt.getCompoundTag("program"));
 				if (message.mod == PIECE) {
-					program.pieces[message.process][message.step] = DavidsModRegistries.piece.getValue(new ResourceLocation(message.id));
+					program.pieces[message.process][message.step] = message.id.isEmpty() ? null : DavidsModRegistries.piece.getValue(new ResourceLocation(message.id));
 				} else {
-					program.mods[message.process][message.step][message.mod] = DavidsModRegistries.pieceMod.getValue(new ResourceLocation(message.id));
+					program.mods[message.process][message.step][message.mod] = message.id.isEmpty() ? null : DavidsModRegistries.pieceMod.getValue(new ResourceLocation(message.id));
 				}
 				nbt.setTag("program", program.toNbt());
 				System.err.println(nbt.toString());
