@@ -15,18 +15,27 @@ public class Program {
 	
 	public static Program fromNbt(NBTTagCompound nbt) {
 		Program p = new Program();
-		if (nbt == null) {
+		if (nbt == null || nbt.hasNoTags()) {
 			return p;
 		}
 		for (int process = 0; process < processCount; process++) {
 			NBTTagCompound ptag = nbt.getCompoundTag("" + process);
+			if (ptag.hasNoTags()) {
+				continue;
+			}
 			for (int step = 0; step < stepCount; step++) {
 				NBTTagCompound stag = ptag.getCompoundTag("" + step);
+				if (stag.hasNoTags()) {
+					continue;
+				}
 				String id = stag.getString("piece");
 				if (id != "") {
 					p.pieces[process][step] = DavidsModRegistries.piece.getValue(new ResourceLocation(id));
 				}
 				NBTTagCompound mtag = stag.getCompoundTag("mods");
+				if (mtag.hasNoTags()) {
+					continue;
+				}
 				for (int mod = 0; mod < modCount; mod++) {
 					String mid = mtag.getString("" + mod);
 					if (mid != "") {
@@ -55,10 +64,16 @@ public class Program {
 						mtag.setString("" + mod, m.getRegistryName().toString());
 					}
 				}
-				stag.setTag("mods", mtag);
-				ptag.setTag("" + step, stag);
+				if (!mtag.hasNoTags()) {
+					stag.setTag("mods", mtag);
+				}
+				if (!stag.hasNoTags()) {
+					ptag.setTag("" + step, stag);
+				}
 			}
-			nbt.setTag("" + process, ptag);
+			if (!ptag.hasNoTags()) {
+				nbt.setTag("" + process, ptag);
+			}
 		}
 		return nbt;
 	}
