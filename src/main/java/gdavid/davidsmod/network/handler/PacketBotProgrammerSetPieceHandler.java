@@ -41,7 +41,6 @@ public class PacketBotProgrammerSetPieceHandler implements IMessageHandler<Packe
 					program.mods[message.process][message.step][message.mod] = message.id.isEmpty() ? null : DavidsModRegistries.pieceMod.getValue(new ResourceLocation(message.id));
 				}
 				nbt.setTag("program", program.toNbt());
-				System.err.println(nbt.toString());
 				stack.setTagCompound(nbt);
 				player.setHeldItem(message.hand, stack);
 			}
