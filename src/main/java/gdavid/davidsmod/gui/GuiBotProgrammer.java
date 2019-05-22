@@ -283,7 +283,7 @@ public class GuiBotProgrammer extends GuiScreen {
 				}
 			}
 		}
-		if (hover) {
+		if (hover && isShiftKeyDown()) {
 			if (hover_mod == PIECE) {
 				Piece piece = program.pieces[hover_process][hover_step];
 				if (piece != null) {
