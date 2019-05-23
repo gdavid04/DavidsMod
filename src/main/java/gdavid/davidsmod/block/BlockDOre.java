@@ -17,13 +17,14 @@ public class BlockDOre extends BlockOre {
 	public final int minDrop, maxDrop;
 	public final int minExpDrop, maxExpDrop;
 
-	public BlockDOre(String name, Item drop, int minDrop, int maxDrop, int minExpDrop, int maxExpDrop) {
+	public BlockDOre(String name, Item drop, int minDrop, int maxDrop, int minExpDrop, int maxExpDrop, int level) {
 		super();
 		setUnlocalizedName(DavidsMod.modID + ":" + name);
 		setRegistryName(name);
 		setCreativeTab(TabDavidsmod.get());
 		setHardness(1.5F);
 		setResistance(10.0F);
+		setHarvestLevel("pickaxe", level);
 		this.drop = drop;
 		this.minDrop = minDrop;
 		this.maxDrop = maxDrop;

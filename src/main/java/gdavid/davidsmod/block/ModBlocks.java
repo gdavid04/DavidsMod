@@ -14,14 +14,18 @@ public class ModBlocks {
 	
 	// these have a normal ItemBlock
 	public static final Block stoneTile = RegUtil.regBlock(CreateBlockUtil.create("stone_tile", Material.ROCK, MapColor.STONE, 1.5f, 10.0f));
-	public static final BlockDOre fossils = (BlockDOre) RegUtil.regBlock(new BlockDOre("fossils", Items.BONE, 1, 4, 0, 3).setHardness(3.0F));
+	
 	public static final Block machineBlock = RegUtil.regBlock(CreateBlockUtil.create("machine_block", Material.ROCK, 3.5f));
+	
 	public static final Block7segDisplay display7seg = RegUtil.regBlock(new Block7segDisplay());
 	public static final BlockBarDisplay displayBar = RegUtil.regBlock(new BlockBarDisplay());
 	public static final BlockRedstoneRod redstoneRod = RegUtil.regBlock(new BlockRedstoneRod());
 	
 	public static final BlockChargedIron chargedIron = RegUtil.regBlock(new BlockChargedIron());
 	public static final BlockChargedRock chargedRock = RegUtil.regBlock(new BlockChargedRock());
+
+	public static final BlockDOre fossils = (BlockDOre) RegUtil.regBlock(new BlockDOre("fossils", Items.BONE, 1, 4, 0, 3, 1).setHardness(3.0F));
+	public static final BlockDOre quartzOre = (BlockDOre) RegUtil.regBlock(new BlockDOre("quartz_ore", Items.QUARTZ, 2, 3, 0, 3, 2).setHardness(4.5F));
 	
 	public static void reg() {
 		// used to explicitly initialize static fields, thus registering the blocks

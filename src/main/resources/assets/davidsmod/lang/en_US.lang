@@ -20,6 +20,7 @@ item.davidsmod\:ender_seed.name=Ender seed
 tile.davidsmod\:stone_tile.name=Stone tile
 
 tile.davidsmod\:fossils.name=Fossils
+tile.davidsmod\:quartz_ore.name=Quartz ore
 
 tile.davidsmod\:machine_block.name=Machine block
 

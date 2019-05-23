@@ -18,6 +18,7 @@ public class WorldGenerator implements IWorldGenerator {
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
 			generateOre(ModBlocks.fossils.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 40, 128, 1 + random.nextInt(10), 4);
+			generateOre(ModBlocks.quartzOre.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 0, 82, 2 + random.nextInt(4), 20);
 		}
 	}
 	
