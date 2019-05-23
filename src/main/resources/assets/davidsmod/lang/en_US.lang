@@ -34,28 +34,117 @@ tile.davidsmod\:charged_rock.name=Charged rock
 
 gdavid.davidsmod\:piece.category.targetting.desc=\
 	§6Targetting\n\
-	§fCommands and modifiers\n\
+	Commands and modifiers\n\
 	used to control the targetting\n\
 	system of the bot.
 gdavid.davidsmod\:piece.category.movement.desc=\
 	§6Movement\n\
-	§fCommands used to control\n\
+	Commands used to control\n\
 	the movement of the bot.
 gdavid.davidsmod\:piece.category.interaction.desc=\
 	§6Interaction\n\
-	§fCommands used to make\n\
+	Commands used to make\n\
 	the bot interact with\n\
 	the world.
 gdavid.davidsmod\:piece.category.identification.desc=\
 	§6Identification\n\
-	§fModifiers used to target\n\
+	Modifiers used to target\n\
 	objects more accurately.
 gdavid.davidsmod\:piece.category.state.desc=\
 	§6State\n\
-	§fCommands and modifiers used to\n\
+	Commands and modifiers used to\n\
 	query and alter the internal\n\
 	state machine of the bot.
 gdavid.davidsmod\:piece.category.boosters.desc=\
 	§6Boosters\n\
-	§fModifiers used to enhance\n\
+	Modifiers used to enhance\n\
 	various abilities of the bot.
+
+gdavid.davidsmod\:piece.piece.follow_player.desc=\
+	§6Follow player\n\
+	Move towards the nearest player\n\
+	in detection range.\n\
+	§2Upgrades:\n\
+	§2- Extended range (detection range)\n\
+	§2- Overclock (speed)\n\
+	§3Filters:\n\
+	§3- Id (match id beacon)
+gdavid.davidsmod\:piece.piece.follow_target.desc=\
+	§6Follow target\n\
+	Move towards the target\n\
+	§2Upgrades:\n\
+	§2- Overclock (speed)\n\
+	§3Filters:\n\
+	§3- Id (match id beacon)\n\
+	§3- Target named (match named entities only)
+gdavid.davidsmod\:piece.piece.go_to_chest.desc=\
+	§6Go to chest\n\
+	Move towards the nearest chest\n\
+	in detection range.\n\
+	§2Upgrades:\n\
+	§2- Extended range (detection range)\n\
+	§2- Overclock (speed)
+	§3Filters:\n\
+	§3- Id (match marked chest)\n\
+	§3- Target named (match named chests only)
+gdavid.davidsmod\:piece.piece.go_to_marker.desc=\
+	§6Go to marker\n\
+	Move towards the nearest marker\n\
+	in detection range.\n\
+	§2Upgrades:\n\
+	§2- Extended range (detection range)\n\
+	§2- Overclock (speed)
+	§3Filters:\n\
+	§3- Id (match marker with id)\n\
+	§3- Target named (match markers with id only)
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
+gdavid.davidsmod\:piece.piece..desc=\
+	§6\n\
+	
