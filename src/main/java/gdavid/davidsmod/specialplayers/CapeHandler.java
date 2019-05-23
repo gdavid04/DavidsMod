@@ -14,9 +14,12 @@ import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.fml.relauncher.Side;
 
+@EventBusSubscriber(value = Side.CLIENT)
 public class CapeHandler {
 	
 	private static final String[] PLAYER_INFO = new String[]{"d", "field_175157_a", "playerInfo"};

@@ -1,7 +1,5 @@
 package gdavid.davidsmod.proxy;
 
-import gdavid.davidsmod.gui.OverlayDataGoggles;
-import gdavid.davidsmod.specialplayers.CapeHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -11,7 +9,6 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
 	
@@ -34,12 +31,6 @@ public class ClientProxy extends CommonProxy {
 			}
 			
 		});
-	}
-	
-	@Override
-	public void registerHandlers() {
-		MinecraftForge.EVENT_BUS.register(OverlayDataGoggles.class);
-		MinecraftForge.EVENT_BUS.register(CapeHandler.class);
 	}
 	
 }

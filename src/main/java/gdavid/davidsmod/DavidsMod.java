@@ -58,7 +58,6 @@ public class DavidsMod {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		proxy.registerHandlers();
 		PacketHandler.RegisterPackets();
 		GameRegistry.registerWorldGenerator(new WorldGenerator(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());

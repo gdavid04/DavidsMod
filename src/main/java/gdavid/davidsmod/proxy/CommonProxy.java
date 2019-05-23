@@ -16,7 +16,4 @@ public class CommonProxy {
 	public void mapBlockModel(Block block, String location) {
 	}
 	
-	public void registerHandlers() {
-	}
-	
 }
