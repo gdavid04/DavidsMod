@@ -1,7 +1,5 @@
 package gdavid.davidsmod.item;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -18,9 +16,6 @@ import net.minecraft.world.World;
 public class ItemRedstoneMeter extends Item {
 	
 	public ItemRedstoneMeter() {
-		setUnlocalizedName(DavidsMod.modID + ":" + "redstone_meter");
-		setRegistryName("redstone_meter");
-		setCreativeTab(TabDavidsmod.get());
 		setMaxDamage(64);
 		setMaxStackSize(1);
 	}

@@ -1,7 +1,5 @@
 package gdavid.davidsmod.block;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -18,9 +16,6 @@ public class BlockChargedRock extends Block {
 	
 	public BlockChargedRock() {
 		super(Material.ROCK, MapColor.CYAN);
-		setUnlocalizedName(DavidsMod.modID + ":" + "charged_rock");
-		setRegistryName("charged_rock");
-		setCreativeTab(TabDavidsmod.get());
 		setHardness(5.0F);
 		setResistance(10.0F);
 	}

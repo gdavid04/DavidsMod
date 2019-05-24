@@ -2,8 +2,7 @@ package gdavid.davidsmod.block;
 
 import java.util.Random;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
+import gdavid.davidsmod.util.CreateBlockUtil;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -16,12 +15,13 @@ public class BlockDOre extends BlockOre {
 	public final Item drop;
 	public final int minDrop, maxDrop;
 	public final int minExpDrop, maxExpDrop;
-
-	public BlockDOre(String name, Item drop, int minDrop, int maxDrop, int minExpDrop, int maxExpDrop, int level) {
+	
+	public static BlockDOre create(String name, Item drop, int minDrop, int maxDrop, int minExpDrop, int maxExpDrop, int level) {
+		return CreateBlockUtil.adapt(name, new BlockDOre(drop, minDrop, maxDrop, minExpDrop, maxExpDrop, level));
+	}
+	
+	public BlockDOre(Item drop, int minDrop, int maxDrop, int minExpDrop, int maxExpDrop, int level) {
 		super();
-		setUnlocalizedName(DavidsMod.modID + ":" + name);
-		setRegistryName(name);
-		setCreativeTab(TabDavidsmod.get());
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setHarvestLevel("pickaxe", level);

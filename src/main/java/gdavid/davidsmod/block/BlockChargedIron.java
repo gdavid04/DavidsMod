@@ -1,7 +1,5 @@
 package gdavid.davidsmod.block;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -13,9 +11,6 @@ public class BlockChargedIron extends Block {
 	
 	public BlockChargedIron() {
 		super(Material.IRON, MapColor.CYAN);
-		setUnlocalizedName(DavidsMod.modID + ":" + "charged_iron_block");
-		setRegistryName("charged_iron_block");
-		setCreativeTab(TabDavidsmod.get());
 		setHardness(5.0F);
 		setResistance(10.0F);
 		setDefaultSlipperiness(1.0989011f);

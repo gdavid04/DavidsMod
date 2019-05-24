@@ -1,8 +1,6 @@
 package gdavid.davidsmod.item;
 
-import gdavid.davidsmod.DavidsMod;
 import gdavid.davidsmod.block.ModBlocks;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,9 +18,6 @@ public class ItemEnderSeed extends ItemSeeds {
 	
 	public ItemEnderSeed() {
 		super(ModBlocks.enderCrop, Blocks.END_STONE);
-		setUnlocalizedName(DavidsMod.modID + ":" + "ender_seed");
-		setRegistryName("ender_seed");
-		setCreativeTab(TabDavidsmod.get());
 	}
 	
 	@Override

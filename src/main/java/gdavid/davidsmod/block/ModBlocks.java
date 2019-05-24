@@ -22,15 +22,15 @@ public class ModBlocks {
 	
 	public static final Block machineBlock = RegUtil.regBlock(CreateBlockUtil.create("machine_block", Material.ROCK, 3.5f));
 	
-	public static final Block7segDisplay display7seg = RegUtil.regBlock(new Block7segDisplay());
-	public static final BlockBarDisplay displayBar = RegUtil.regBlock(new BlockBarDisplay());
-	public static final BlockRedstoneRod redstoneRod = RegUtil.regBlock(new BlockRedstoneRod());
+	public static final Block7segDisplay display7seg = RegUtil.regBlock(CreateBlockUtil.adapt("7seg_display", new Block7segDisplay()));
+	public static final BlockBarDisplay displayBar = RegUtil.regBlock(CreateBlockUtil.adapt("bar_display", new BlockBarDisplay()));
+	public static final BlockRedstoneRod redstoneRod = RegUtil.regBlock(CreateBlockUtil.adapt("redstone_rod", new BlockRedstoneRod()));
 	
-	public static final BlockChargedIron chargedIron = RegUtil.regBlock(new BlockChargedIron());
-	public static final BlockChargedRock chargedRock = RegUtil.regBlock(new BlockChargedRock());
+	public static final BlockChargedIron chargedIron = RegUtil.regBlock(CreateBlockUtil.adapt("charged_iron_block", new BlockChargedIron()));
+	public static final BlockChargedRock chargedRock = RegUtil.regBlock(CreateBlockUtil.adapt("charged_rock", new BlockChargedRock()));
 	
-	public static final BlockDOre fossils = (BlockDOre) RegUtil.regBlock(new BlockDOre("fossils", Items.BONE, 1, 4, 0, 3, 1).setHardness(3.0F));
-	public static final BlockDOre quartzOre = (BlockDOre) RegUtil.regBlock(new BlockDOre("quartz_ore", Items.QUARTZ, 2, 3, 0, 3, 2).setHardness(4.5F));
+	public static final BlockDOre fossils = (BlockDOre) RegUtil.regBlock(BlockDOre.create("fossils", Items.BONE, 1, 4, 0, 3, 1).setHardness(3.0F));
+	public static final BlockDOre quartzOre = (BlockDOre) RegUtil.regBlock(BlockDOre.create("quartz_ore", Items.QUARTZ, 2, 3, 0, 3, 2).setHardness(4.5F));
 	
 	public static void reg() {
 		// used to explicitly initialize static fields, thus registering the blocks

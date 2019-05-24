@@ -1,7 +1,5 @@
 package gdavid.davidsmod.item;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,9 +19,6 @@ import net.minecraft.world.World;
 public class ItemRedstoneMeterWithDisplay extends Item {
 
 	public ItemRedstoneMeterWithDisplay() {
-		setUnlocalizedName(DavidsMod.modID + ":" + "redstone_meter_with_display");
-		setRegistryName("redstone_meter_with_display");
-		setCreativeTab(TabDavidsmod.get());
 		setMaxDamage(256);
 		setMaxStackSize(1);
 		this.addPropertyOverride(new ResourceLocation("display"), new IItemPropertyGetter() {

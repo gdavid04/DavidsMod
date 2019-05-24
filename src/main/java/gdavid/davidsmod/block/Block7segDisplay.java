@@ -1,7 +1,5 @@
 package gdavid.davidsmod.block;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockRedstoneWire;
@@ -27,9 +25,6 @@ public class Block7segDisplay extends Block {
 	
 	public Block7segDisplay() {
 		super(Material.ROCK);
-		setUnlocalizedName(DavidsMod.modID + ":" + "7seg_display");
-		setRegistryName("7seg_display");
-		setCreativeTab(TabDavidsmod.get());
 		setHardness(3.5F);
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(DISPLAY, 0));
 	}

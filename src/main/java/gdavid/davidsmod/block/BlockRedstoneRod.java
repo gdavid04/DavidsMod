@@ -2,8 +2,6 @@ package gdavid.davidsmod.block;
 
 import javax.annotation.Nullable;
 
-import gdavid.davidsmod.DavidsMod;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.EnumPushReaction;
@@ -37,9 +35,6 @@ public class BlockRedstoneRod extends BlockDirectional {
 	
 	public BlockRedstoneRod() {
 		super(Material.CIRCUITS);
-		setUnlocalizedName(DavidsMod.modID + ":" + "redstone_rod");
-		setRegistryName("redstone_rod");
-		setCreativeTab(TabDavidsmod.get());
 		setHardness(1.0F);
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(POWERED, false));
 	}

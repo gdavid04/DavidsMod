@@ -2,7 +2,6 @@ package gdavid.davidsmod.item;
 
 import gdavid.davidsmod.DavidsMod;
 import gdavid.davidsmod.gui.GuiHandler;
-import gdavid.davidsmod.tab.TabDavidsmod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -15,9 +14,6 @@ import net.minecraft.world.World;
 public class ItemBotProgrammer extends Item {
 
 	public ItemBotProgrammer() {
-		setUnlocalizedName(DavidsMod.modID + ":" + "bot_programmer");
-		setRegistryName("bot_programmer");
-		setCreativeTab(TabDavidsmod.get());
 		setMaxStackSize(1);
 	}
 	
