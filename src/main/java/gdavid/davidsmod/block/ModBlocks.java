@@ -16,9 +16,9 @@ public class ModBlocks {
 	// these have a normal ItemBlock
 	public static final Block stoneTile = RegUtil.regBlock(CreateBlockUtil.create("stone_tile", Material.ROCK, MapColor.STONE, 1.5f, 10.0f));
 	public static final Block flint = RegUtil.regBlock(CreateBlockUtil.adapt("flint_block", new BlockDFalling(Material.ROCK, MapColor.STONE, -8356741).setSoundType(SoundType.GROUND).setHardness(1.0F)));
-	public static final Block smoothOak = RegUtil.regBlock(CreateBlockUtil.create("smooth_oak_wood", Material.WOOD, SoundType.WOOD, 2.0F, 5.0F));
-	public static final Block oakPanel = RegUtil.regBlock(CreateBlockUtil.create("oak_panel", Material.WOOD, SoundType.WOOD, 2.0F, 5.0F));
-	public static final Block oakPanelStack = RegUtil.regBlock(CreateBlockUtil.create("oak_panel_stack", Material.WOOD, SoundType.WOOD, 2.5F, 8.0F));
+	public static final Block smoothOak = RegUtil.regBlock(CreateBlockUtil.create("smooth_oak_wood", Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setFlammability(20));
+	public static final Block oakPanel = RegUtil.regBlock(CreateBlockUtil.create("oak_panel", Material.WOOD, SoundType.WOOD, 2.0F, 5.0F).setFlammability(20));
+	public static final Block oakPanelStack = RegUtil.regBlock(CreateBlockUtil.create("oak_panel_stack", Material.WOOD, SoundType.WOOD, 2.5F, 8.0F).setFlammability(20));
 	
 	public static final Block machineBlock = RegUtil.regBlock(CreateBlockUtil.create("machine_block", Material.ROCK, 3.5f));
 	
