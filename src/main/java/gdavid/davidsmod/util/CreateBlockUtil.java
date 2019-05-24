@@ -15,10 +15,7 @@ public class CreateBlockUtil {
 		Material material,
 		float hardness
 	) {
-		return new Block(material)
-			.setRegistryName(DavidsMod.modID, name)
-			.setUnlocalizedName(DavidsMod.modID + ":" + name)
-			.setCreativeTab(TabDavidsmod.get())
+		return adapt(name, new Block(material))
 			.setHardness(hardness);
 	}
 	
@@ -28,10 +25,7 @@ public class CreateBlockUtil {
 		SoundType sound,
 		float hardness
 	) {
-		return new BlockWithSound(material, sound)
-			.setRegistryName(DavidsMod.modID, name)
-			.setUnlocalizedName(DavidsMod.modID + ":" + name)
-			.setCreativeTab(TabDavidsmod.get())
+		return adapt(name, new BlockWithSound(material, sound))
 			.setHardness(hardness);
 	}
 	
@@ -62,10 +56,7 @@ public class CreateBlockUtil {
 		MapColor color,
 		float hardness
 	) {
-		return new Block(material, color)
-			.setRegistryName(DavidsMod.modID, name)
-			.setUnlocalizedName(DavidsMod.modID + ":" + name)
-			.setCreativeTab(TabDavidsmod.get())
+		return adapt(name, new Block(material, color))
 			.setHardness(hardness);
 	}
 	
@@ -76,10 +67,7 @@ public class CreateBlockUtil {
 		SoundType sound,
 		float hardness
 	) {
-		return new BlockWithSound(material, color, sound)
-			.setRegistryName(DavidsMod.modID, name)
-			.setUnlocalizedName(DavidsMod.modID + ":" + name)
-			.setCreativeTab(TabDavidsmod.get())
+		return adapt(name, new BlockWithSound(material, color, sound))
 			.setHardness(hardness);
 	}
 	
@@ -104,6 +92,14 @@ public class CreateBlockUtil {
 	) {
 		return create(name, material, color, sound, hardness)
 			.setResistance(resistance);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static <T extends Block> T adapt(String name, T block) {
+		return (T) block
+			.setRegistryName(DavidsMod.modID, name)
+			.setUnlocalizedName(DavidsMod.modID + ":" + name)
+			.setCreativeTab(TabDavidsmod.get());
 	}
 	
 }
