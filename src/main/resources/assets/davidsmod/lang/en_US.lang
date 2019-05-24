@@ -33,6 +33,8 @@ tile.davidsmod\:bar_display.name=Bar display
 
 tile.davidsmod\:redstone_rod.name=Redstone rod
 
+tile.davidsmod\:block_breaker.name=Block breaker
+
 tile.davidsmod\:charged_iron_block.name=Charged iron block
 tile.davidsmod\:charged_rock.name=Charged rock
 

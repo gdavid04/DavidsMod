@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_bottom_top",
+		"textures": {
+			"top": "davidsmod:block/block_breaker",
+			"side": "davidsmod:block/plastic_machine",
+			"bottom": "davidsmod:block/machine_block"
+		}
+	},
+	"variants": {
+		"triggered": {"false": {}, "true": {}},
+		"facing": {
+			"down": {"x": 180},
+			"up": {},
+			"north": {"x": 90},
+			"south": {"x": 90, "y": 180},
+			"west": {"x": 90, "y": 270},
+			"east": {"x": 90, "y": 90}
+		},
+		"inventory": [{}]
+	}
+}

@@ -25,6 +25,7 @@ public class ModBlocks {
 	public static final Block7segDisplay display7seg = RegUtil.regBlock(CreateBlockUtil.adapt("7seg_display", new Block7segDisplay()));
 	public static final BlockBarDisplay displayBar = RegUtil.regBlock(CreateBlockUtil.adapt("bar_display", new BlockBarDisplay()));
 	public static final BlockRedstoneRod redstoneRod = RegUtil.regBlock(CreateBlockUtil.adapt("redstone_rod", new BlockRedstoneRod()));
+	public static final BlockBlockBreaker blockBreaker = RegUtil.regBlock(CreateBlockUtil.adapt("block_breaker", new BlockBlockBreaker(2)));
 	
 	public static final BlockChargedIron chargedIron = RegUtil.regBlock(CreateBlockUtil.adapt("charged_iron_block", new BlockChargedIron()));
 	public static final BlockChargedRock chargedRock = RegUtil.regBlock(CreateBlockUtil.adapt("charged_rock", new BlockChargedRock()));
