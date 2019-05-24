@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		"   ",
+		"WW "
+	],
+	"key": {
+		"W": {"item": "davidsmod:smooth_oak_wood"}
+	},
+	"result": {"item": "davidsmod:oak_panel", "count": 2}
+}

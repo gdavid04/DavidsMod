@@ -18,6 +18,10 @@ item.davidsmod\:bot_programmer.name=Bot programmer
 item.davidsmod\:ender_seed.name=Ender seed
 
 tile.davidsmod\:stone_tile.name=Stone tile
+tile.davidsmod\:flint_block.name=Flint block
+tile.davidsmod\:smooth_oak_wood.name=Smooth oak wood
+tile.davidsmod\:oak_panel.name=Oak panel
+tile.davidsmod\:oak_panel_stack.name=Stack of oak panels
 
 tile.davidsmod\:fossils.name=Fossils
 tile.davidsmod\:quartz_ore.name=Quartz ore
@@ -30,7 +34,6 @@ tile.davidsmod\:bar_display.name=Bar display
 tile.davidsmod\:redstone_rod.name=Redstone rod
 
 tile.davidsmod\:charged_iron_block.name=Charged iron block
-
 tile.davidsmod\:charged_rock.name=Charged rock
 
 gdavid.davidsmod\:piece.category.targetting.desc=\

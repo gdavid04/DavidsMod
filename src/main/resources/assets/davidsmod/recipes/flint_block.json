@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"FF",
+		"FF"
+	],
+	"key": {
+		"F": {"item": "minecraft:flint"}
+	},
+	"result": {"item": "davidsmod:flint_block"}
+}

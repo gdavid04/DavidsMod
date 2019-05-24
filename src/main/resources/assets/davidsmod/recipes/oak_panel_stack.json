@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		" W ",
+		" W "
+	],
+	"key": {
+		"W": {"item": "davidsmod:oak_panel"}
+	},
+	"result": {"item": "davidsmod:oak_panel_stack"}
+}

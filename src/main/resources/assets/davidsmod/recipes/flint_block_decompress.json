@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:flint_block"}
+	],
+	"result": {"item": "minecraft:flint", "count": 4}
+}

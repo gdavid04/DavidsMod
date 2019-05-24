@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{"item": "minecraft:planks", "data": 0},
+		{"item": "minecraft:planks", "data": 0}
+	],
+	"result": {"item": "davidsmod:smooth_oak_wood", "count": 2}
+}
