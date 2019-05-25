@@ -7,6 +7,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.CooldownTracker;
 import net.minecraft.util.EnumActionResult;
@@ -52,12 +53,18 @@ public class ItemInfinityPickaxe extends Item {
 	}
 	
 	public boolean dropsNormally(World worldIn, BlockPos pos, IBlockState state, ItemStack stack) {
-		return state.getBlock() != Blocks.BEDROCK;
+		Block block = state.getBlock();
+		return
+			block != Blocks.BEDROCK &&
+			block != Blocks.END_PORTAL_FRAME;
 	}
 	
 	public void addSpecialDrop(World worldIn, BlockPos pos, IBlockState state, ItemStack stack) {
-		if (state.getBlock() == Blocks.BEDROCK) {
+		Block block = state.getBlock();
+		if (block == Blocks.BEDROCK) {
 			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.bedrockDust, 3)));
+		} else if (block == Blocks.END_PORTAL_FRAME) {
+			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ItemBlock.getItemFromBlock(Blocks.END_PORTAL_FRAME))));
 		}
 	}
 	
