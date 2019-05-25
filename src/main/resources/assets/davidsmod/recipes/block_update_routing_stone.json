@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" S ",
+		" Q ",
+		" S "
+	],
+	"key": {
+		"S": {"item": "minecraft:stone_slab", "data": 0},
+		"Q": {"item": "minecraft:quartz"}
+	},
+	"result": {"item": "davidsmod:block_update_routing_stone"}
+}

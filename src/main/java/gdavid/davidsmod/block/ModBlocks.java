@@ -28,6 +28,7 @@ public class ModBlocks {
 	public static final BlockBlockBreaker blockBreaker = RegUtil.regBlock(CreateBlockUtil.adapt("block_breaker", new BlockBlockBreaker(2)));
 	public static final BlockMechanicalFangs mechanicalFangs = RegUtil.regBlock(CreateBlockUtil.adapt("mechanical_fangs", new BlockMechanicalFangs()));
 	public static final BlockTouchSensor touchSensor = RegUtil.regBlock(CreateBlockUtil.adapt("touch_sensor", new BlockTouchSensor()));
+	public static final BlockBlockUpdateRouter blockUpdateRoutingStone = (BlockBlockUpdateRouter) RegUtil.regBlock(CreateBlockUtil.adapt("block_update_routing_stone", new BlockBlockUpdateRouter(Material.ROCK, MapColor.STONE)).setHardness(3.0F));
 	
 	public static final BlockChargedIron chargedIron = RegUtil.regBlock(CreateBlockUtil.adapt("charged_iron_block", new BlockChargedIron()));
 	public static final BlockChargedRock chargedRock = RegUtil.regBlock(CreateBlockUtil.adapt("charged_rock", new BlockChargedRock()));

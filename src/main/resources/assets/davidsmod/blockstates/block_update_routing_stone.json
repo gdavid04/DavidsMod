@@ -1,0 +1,11 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_all",
+		"textures": {"all": "davidsmod:block/block_update_routing_stone"}
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

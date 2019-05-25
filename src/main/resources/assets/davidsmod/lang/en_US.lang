@@ -43,6 +43,8 @@ tile.davidsmod\:mechanical_fangs.name=Mechanical fangs
 
 tile.davidsmod\:touch_sensor.name=Touch sensor
 
+tile.davidsmod\:block_update_routing_stone.name=Block update routing stone
+
 tile.davidsmod\:charged_iron_block.name=Charged iron block
 tile.davidsmod\:charged_rock.name=Charged rock
 
