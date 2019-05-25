@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
+import net.minecraft.block.BlockRedstoneWire;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -13,6 +14,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
@@ -130,12 +132,12 @@ public class BlockRedstoneRod extends BlockDirectional {
 		if (!worldIn.isRemote) {
 			EnumFacing facing = state.getValue(FACING);
 			BlockPos input = pos.offset(facing.getOpposite());
-			boolean new_power = worldIn.isSidePowered(input, facing);
-			IBlockState in = worldIn.getBlockState(input);
-			if (in.getBlock() == this) {
-				new_power = in.getValue(POWERED);
-			}
-			worldIn.setBlockState(pos, state.withProperty(POWERED, new_power), 3);
+			IBlockState instate = worldIn.getBlockState(input);
+			worldIn.setBlockState(pos, state.withProperty(POWERED,
+				worldIn.isSidePowered(input, facing) ||
+				(instate.getBlock() == Blocks.REDSTONE_WIRE && instate.getValue(BlockRedstoneWire.POWER) != 0) ||
+				(instate.getBlock() instanceof BlockRedstoneRod && instate.getValue(FACING) == facing && instate.getValue(POWERED))
+			), 3);
 		}
 	}
 	
@@ -144,12 +146,11 @@ public class BlockRedstoneRod extends BlockDirectional {
 		if (!worldIn.isRemote) {
 			EnumFacing facing = state.getValue(FACING);
 			BlockPos input = pos.offset(facing.getOpposite());
-			boolean new_power = worldIn.isSidePowered(input, facing);
-			IBlockState in = worldIn.getBlockState(input);
-			if (in.getBlock() == this) {
-				new_power = in.getValue(POWERED);
-			}
-			worldIn.setBlockState(pos, state.withProperty(POWERED, new_power), 3);
+			IBlockState instate = worldIn.getBlockState(input);
+			worldIn.setBlockState(pos, state.withProperty(POWERED,
+				worldIn.isSidePowered(input, facing) ||
+				(instate.getBlock() == Blocks.REDSTONE_WIRE && instate.getValue(BlockRedstoneWire.POWER) != 0)
+			), 3);
 		}
 	}
 	

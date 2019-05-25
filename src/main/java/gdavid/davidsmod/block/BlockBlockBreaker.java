@@ -1,5 +1,6 @@
 package gdavid.davidsmod.block;
 
+import gdavid.davidsmod.util.RsUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.MapColor;
@@ -33,7 +34,7 @@ public class BlockBlockBreaker extends Block {
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		if (!worldIn.isRemote) {
-			boolean powered = worldIn.isBlockPowered(pos);
+			boolean powered = RsUtil.isPowered(worldIn, pos);
 			if (!state.getValue(TRIGGERED) && powered) {
 				breakBlock(worldIn, pos.offset(state.getValue(FACING)), level);
 			}

@@ -1,5 +1,6 @@
 package gdavid.davidsmod.block;
 
+import gdavid.davidsmod.util.RsUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -27,7 +28,7 @@ public class BlockMechanicalFangs extends Block {
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		if (!worldIn.isRemote) {
-			boolean powered = worldIn.isBlockPowered(pos);
+			boolean powered = RsUtil.isPowered(worldIn, pos);
 			if (!state.getValue(TRIGGERED) && powered && worldIn.getEntitiesWithinAABB(EntityEvokerFangs.class, CHK_AABB.offset(pos).offset(0, 1, 0)).isEmpty()) {
 				worldIn.spawnEntity(new EntityEvokerFangs(worldIn, pos.getX() + 0.5F, pos.getY() + 1.0F, pos.getZ() + 0.5F, 0, 10, null));
 			}
