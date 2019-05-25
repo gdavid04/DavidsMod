@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"DD",
+		"DD"
+	],
+	"key": {
+		"D": {"item": "davidsmod:bedrock_dust"}
+	},
+	"result": {"item": "minecraft:bedrock"}
+}

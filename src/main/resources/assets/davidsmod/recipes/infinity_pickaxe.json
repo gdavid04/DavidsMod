@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC",
+		" D ",
+		" P "
+	],
+	"key": {
+		"C": {"item": "minecraft:end_crystal"},
+		"D": {"item": "minecraft:diamond"},
+		"P": {"item": "minecraft:ender_pearl"}
+	},
+	"result": {"item": "davidsmod:infinity_pickaxe"}
+}

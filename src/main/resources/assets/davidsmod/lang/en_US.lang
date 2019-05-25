@@ -15,7 +15,11 @@ item.davidsmod\:tier2_input_module.name=Tier 2 input module
 
 item.davidsmod\:bot_programmer.name=Bot programmer
 
+item.davidsmod\:infinity_pickaxe.name=Infinity pickaxe
+
 item.davidsmod\:ender_seed.name=Ender seed
+
+item.davidsmod\:bedrock_dust.name=Bedrock dust
 
 tile.davidsmod\:stone_tile.name=Stone tile
 tile.davidsmod\:flint_block.name=Flint block

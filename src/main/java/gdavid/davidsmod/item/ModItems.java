@@ -16,6 +16,8 @@ public class ModItems {
 	public static final Item moduleInput2 = RegUtil.regItem(CreateItemUtil.create("tier2_input_module", 16));
 	public static final ItemBotProgrammer botProgrammer = RegUtil.regItem(CreateItemUtil.adapt("bot_programmer", new ItemBotProgrammer()));
 	public static final ItemEnderSeed enderSeed = RegUtil.regItem(CreateItemUtil.adapt("ender_seed", new ItemEnderSeed()));
+	public static final ItemInfinityPickaxe infinityPickaxe = RegUtil.regItem(CreateItemUtil.adapt("infinity_pickaxe", new ItemInfinityPickaxe()));
+	public static final Item bedrockDust = RegUtil.regItem(CreateItemUtil.create("bedrock_dust"));
 	
 	public static void reg() {
 		// used to explicitly initialize static fields, thus registering the items
