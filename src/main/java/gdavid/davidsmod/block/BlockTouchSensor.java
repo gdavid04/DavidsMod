@@ -36,14 +36,18 @@ public class BlockTouchSensor extends Block {
 	
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		if (!worldIn.isUpdateScheduled(pos, this)) {
-			worldIn.scheduleBlockUpdate(pos, this, 5, 0);
+		if (!worldIn.isRemote) {
+			if (!worldIn.isUpdateScheduled(pos, this)) {
+				worldIn.scheduleBlockUpdate(pos, this, 5, 0);
+			}
 		}
 	}
 	
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		recalculate(worldIn, pos, state);
+		if (!worldIn.isRemote) {
+			recalculate(worldIn, pos, state);
+		}
 	}
 	
 	public void recalculate(World world, BlockPos pos, IBlockState state) {
