@@ -1,0 +1,14 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "orientable_vertical",
+		"textures": {
+			"front": "davidsmod:block/pressure_plate_in_stone",
+			"side": "blocks/stone"
+		}
+	},
+	"variants": {
+		"activated": {"false": {}, "true": {}},
+		"inventory": [{}]
+	}
+}

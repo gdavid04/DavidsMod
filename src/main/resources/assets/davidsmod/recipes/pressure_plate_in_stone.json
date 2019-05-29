@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		" P ",
+		" S "
+	],
+	"key": {
+		"P": {"item": "minecraft:stone_pressure_plate"},
+		"S": {"item": "minecraft:stone", "data": 0}
+	},
+	"result": {"item": "davidsmod:pressure_plate_in_stone"}
+}
