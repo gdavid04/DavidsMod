@@ -1,5 +1,6 @@
 package gdavid.davidsmod;
 
+import gdavid.davidsmod.api.DavidsModCrafting;
 import gdavid.davidsmod.api.DavidsModRegistries;
 import gdavid.davidsmod.api.bots.Piece;
 import gdavid.davidsmod.api.bots.PieceCategory;
@@ -48,6 +49,7 @@ public class DavidsMod {
 	public static CommonProxy proxy;
 	
 	static {
+		DavidsModCrafting.init();
 		TabDavidsmod.get();
 		ModBlocks.reg();
 		ModItems.reg();
@@ -58,6 +60,7 @@ public class DavidsMod {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
+		ModCrafting.reg();
 		PacketHandler.RegisterPackets();
 		GameRegistry.registerWorldGenerator(new WorldGenerator(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());

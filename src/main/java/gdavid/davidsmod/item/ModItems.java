@@ -1,5 +1,6 @@
 package gdavid.davidsmod.item;
 
+import gdavid.davidsmod.api.DavidsModCrafting;
 import gdavid.davidsmod.util.CreateItemUtil;
 import gdavid.davidsmod.util.RegUtil;
 
@@ -18,6 +19,7 @@ public class ModItems {
 	public static final ItemEnderSeed enderSeed = RegUtil.regItem(CreateItemUtil.adapt("ender_seed", new ItemEnderSeed()));
 	public static final ItemInfinityPickaxe infinityPickaxe = RegUtil.regItem(CreateItemUtil.adapt("infinity_pickaxe", new ItemInfinityPickaxe()));
 	public static final Item bedrockDust = RegUtil.regItem(CreateItemUtil.create("bedrock_dust"));
+	public static final ItemBlockTransformer mossBall = RegUtil.regItem(CreateItemUtil.adapt("moss_ball", new ItemBlockTransformer(DavidsModCrafting.mossBall)));
 	
 	public static void reg() {
 		// used to explicitly initialize static fields, thus registering the items
