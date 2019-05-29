@@ -59,11 +59,6 @@ public class BlockTouchSensor extends Block {
 	}
 	
 	@Override
-	public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return blockState.getValue(ACTIVATED) ? 15 : 0;
-	}
-	
-	@Override
 	public int getWeakPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		return blockState.getValue(ACTIVATED) ? 15 : 0;
 	}

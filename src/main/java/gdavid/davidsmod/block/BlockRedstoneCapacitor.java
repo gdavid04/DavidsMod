@@ -43,11 +43,6 @@ public class BlockRedstoneCapacitor extends Block {
 	}
 	
 	@Override
-	public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return blockState.getValue(POWER);
-	}
-	
-	@Override
 	public int getWeakPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		return blockState.getValue(POWER);
 	}

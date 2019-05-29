@@ -1,5 +1,7 @@
 package gdavid.davidsmod.block;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
@@ -127,30 +129,44 @@ public class BlockRedstoneRod extends BlockDirectional {
 		return this.getDefaultState().withProperty(FACING, facing);
 	}
 	
+	public void recalculate(World worldIn, BlockPos pos, IBlockState state) {
+		// WONTFIX doesn't work properly with doors
+		EnumFacing facing = state.getValue(FACING);
+		BlockPos input = pos.offset(facing.getOpposite());
+		IBlockState instate = worldIn.getBlockState(input);
+		boolean power =
+			worldIn.isSidePowered(input, facing) ||
+			(instate.getBlock() == Blocks.REDSTONE_WIRE && instate.getValue(BlockRedstoneWire.POWER) != 0) ||
+			(instate.getBlock() instanceof BlockRedstoneRod && instate.getValue(FACING) == facing && instate.getValue(POWERED));
+		if (power != state.getValue(POWERED)) {
+			worldIn.setBlockState(pos, state.withProperty(POWERED, power), 3);
+			BlockPos outpos = pos.offset(facing);
+			IBlockState outstate = worldIn.getBlockState(outpos);
+			Block outblock = outstate.getBlock();
+			if (outblock.shouldCheckWeakPower(outstate, worldIn, outpos, facing.getOpposite())) {
+				worldIn.notifyNeighborsOfStateExcept(outpos, outblock, facing.getOpposite());
+			}
+		}
+	}
+	
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		if (!worldIn.isRemote) {
-			EnumFacing facing = state.getValue(FACING);
-			BlockPos input = pos.offset(facing.getOpposite());
-			IBlockState instate = worldIn.getBlockState(input);
-			worldIn.setBlockState(pos, state.withProperty(POWERED,
-				worldIn.isSidePowered(input, facing) ||
-				(instate.getBlock() == Blocks.REDSTONE_WIRE && instate.getValue(BlockRedstoneWire.POWER) != 0) ||
-				(instate.getBlock() instanceof BlockRedstoneRod && instate.getValue(FACING) == facing && instate.getValue(POWERED))
-			), 3);
+			worldIn.scheduleBlockUpdate(pos, this, 0, 0);
+		}
+	}
+	
+	@Override
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		if (!worldIn.isRemote) {
+			recalculate(worldIn, pos, state);
 		}
 	}
 	
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
 		if (!worldIn.isRemote) {
-			EnumFacing facing = state.getValue(FACING);
-			BlockPos input = pos.offset(facing.getOpposite());
-			IBlockState instate = worldIn.getBlockState(input);
-			worldIn.setBlockState(pos, state.withProperty(POWERED,
-				worldIn.isSidePowered(input, facing) ||
-				(instate.getBlock() == Blocks.REDSTONE_WIRE && instate.getValue(BlockRedstoneWire.POWER) != 0)
-			), 3);
+			worldIn.scheduleBlockUpdate(pos, this, 0, 0);
 		}
 	}
 	
