@@ -51,6 +51,8 @@ tile.davidsmod\:redstone_capacitor.name=Redstone capacitor
 
 tile.davidsmod\:pressure_plate_in_stone.name=Pressure plate in stone
 
+tile.davidsmod\:end_gate.name=End gate
+
 tile.davidsmod\:charged_iron_block.name=Charged iron block
 tile.davidsmod\:charged_rock.name=Charged rock
 

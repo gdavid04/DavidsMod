@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SGS",
+		"SPS",
+		"SSS"
+	],
+	"key": {
+		"S": {"item": "minecraft:end_stone"},
+		"P": {"item": "minecraft:ender_pearl"},
+		"G": {"item": "minecraft:end_portal_frame"}
+	},
+	"result": {"item": "davidsmod:end_gate"}
+}

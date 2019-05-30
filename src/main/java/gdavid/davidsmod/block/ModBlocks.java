@@ -31,6 +31,8 @@ public class ModBlocks {
 	public static final BlockBlockUpdateRouter blockUpdateRoutingStone = (BlockBlockUpdateRouter) RegUtil.regBlock(CreateBlockUtil.adapt("block_update_routing_stone", new BlockBlockUpdateRouter(Material.ROCK, MapColor.STONE)).setHardness(3.0F));
 	public static final BlockRedstoneCapacitor redstoneCapacitor = RegUtil.regBlock(CreateBlockUtil.adapt("redstone_capacitor", new BlockRedstoneCapacitor()));
 	public static final BlockPressurePlateInStone pressurePlateInStone = RegUtil.regBlock(CreateBlockUtil.adapt("pressure_plate_in_stone", new BlockPressurePlateInStone()));
+
+	public static final BlockDimensionGate endGate = (BlockDimensionGate) RegUtil.regBlock(CreateBlockUtil.adapt("end_gate", new BlockDimensionGate(1, Material.ROCK, MapColor.BLACK).setHardness(5.0F)));
 	
 	public static final BlockChargedIron chargedIron = RegUtil.regBlock(CreateBlockUtil.adapt("charged_iron_block", new BlockChargedIron()));
 	public static final BlockChargedRock chargedRock = RegUtil.regBlock(CreateBlockUtil.adapt("charged_rock", new BlockChargedRock()));

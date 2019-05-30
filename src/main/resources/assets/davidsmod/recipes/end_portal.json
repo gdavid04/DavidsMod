@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SDS",
+		"SPS",
+		"SSS"
+	],
+	"key": {
+		"S": {"item": "minecraft:end_stone"},
+		"P": {"item": "minecraft:ender_pearl"},
+		"D": {"item": "davidsmod:bedrock_dust"}
+	},
+	"result": {"item": "minecraft:end_portal_frame"}
+}
