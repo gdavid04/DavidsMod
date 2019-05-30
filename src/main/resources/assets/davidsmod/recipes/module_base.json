@@ -10,5 +10,5 @@
 		"R": {"type": "forge:ore_dict", "ore": "dustRedstone"},
 		"I": {"type": "forge:ore_dict", "ore": "ingotIron"}
 	},
-	"result": {"item": "davidsmod:display_module"}
+	"result": {"item": "davidsmod:module_base"}
 }

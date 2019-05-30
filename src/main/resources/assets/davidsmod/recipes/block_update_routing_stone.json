@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		" S ",
-		" Q ",
-		" S "
+		"S",
+		"Q",
+		"S"
 	],
 	"key": {
 		"S": {"item": "minecraft:stone_slab", "data": 0},

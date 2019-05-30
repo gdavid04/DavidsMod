@@ -1,9 +1,8 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"   ",
-		" P ",
-		" S "
+		"P",
+		"S"
 	],
 	"key": {
 		"P": {"item": "minecraft:stone_pressure_plate"},

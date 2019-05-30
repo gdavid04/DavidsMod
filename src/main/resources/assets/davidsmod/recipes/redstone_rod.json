@@ -1,9 +1,9 @@
 {
 	"type": "forge:ore_shaped",
 	"pattern": [
-		" R ",
-		" I ",
-		" I "
+		"R",
+		"I",
+		"I"
 	],
 	"key": {
 		"R": {"type": "forge:ore_dict", "ore": "dustRedstone"},
