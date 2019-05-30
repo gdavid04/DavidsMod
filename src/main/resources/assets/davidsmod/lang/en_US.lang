@@ -23,6 +23,8 @@ item.davidsmod\:bedrock_dust.name=Bedrock dust
 
 item.davidsmod\:moss_ball.name=Moss ball
 
+item.davidsmod\:void_star.name=Void star
+
 tile.davidsmod\:stone_tile.name=Stone tile
 tile.davidsmod\:flint_block.name=Flint block
 tile.davidsmod\:smooth_oak_wood.name=Smooth oak wood
