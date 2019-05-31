@@ -22,6 +22,7 @@ public class ModItems {
 	public static final ItemBlockTransformer mossBall = RegUtil.regItem(CreateItemUtil.adapt("moss_ball", new ItemBlockTransformer(DavidsModCrafting.mossBall)));
 	public static final Item voidStar = RegUtil.regItem(CreateItemUtil.create("void_star"));
 	public static final Item sand = RegUtil.regItem(CreateItemUtil.create("sand"));
+	public static final Item bloodBottle = RegUtil.regItem(CreateItemUtil.create("bottle_of_blood", 1));
 	
 	public static void reg() {
 		// used to explicitly initialize static fields, thus registering the items
