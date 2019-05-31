@@ -1,0 +1,9 @@
+{
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:machine_block"},
+		{"item": "minecraft:quartz"},
+		{"type": "forge:ore_dict", "ore": "dustRedstone"}
+	],
+	"result": {"item": "davidsmod:block_detector"}
+}

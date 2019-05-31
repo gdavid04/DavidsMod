@@ -1,0 +1,22 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "orientable_vertical",
+		"textures": {
+			"front": "davidsmod:block/lava_detector",
+			"side": "davidsmod:block/machine_block"
+		}
+	},
+	"variants": {
+		"active": {"false": {}, "true": {}},
+		"facing": {
+			"down": {"x": 180},
+			"up": {},
+			"north": {"x": -90, "y": 180},
+			"south": {"x": -90},
+			"west": {"x": -90, "y": 90},
+			"east": {"x": -90, "y": 270}
+		},
+		"inventory": [{"x": -90, "y": 270}]
+	}
+}

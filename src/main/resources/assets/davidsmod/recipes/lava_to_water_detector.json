@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:lava_detector"}
+	],
+	"result": {"item": "davidsmod:water_detector"}
+}

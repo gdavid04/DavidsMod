@@ -6,7 +6,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class ModBlocks {
 	
@@ -31,7 +35,20 @@ public class ModBlocks {
 	public static final BlockBlockUpdateRouter blockUpdateRoutingStone = (BlockBlockUpdateRouter) RegUtil.regBlock(CreateBlockUtil.adapt("block_update_routing_stone", new BlockBlockUpdateRouter(Material.ROCK, MapColor.STONE)).setHardness(3.0F));
 	public static final BlockRedstoneCapacitor redstoneCapacitor = RegUtil.regBlock(CreateBlockUtil.adapt("redstone_capacitor", new BlockRedstoneCapacitor()));
 	public static final BlockPressurePlateInStone pressurePlateInStone = RegUtil.regBlock(CreateBlockUtil.adapt("pressure_plate_in_stone", new BlockPressurePlateInStone()));
-
+	
+	public static final BlockBlockDetector waterDetector = (BlockBlockDetector) RegUtil.regBlock(CreateBlockUtil.adapt("water_detector", new BlockBlockDetector(Material.ROCK, MapColor.STONE, (World world, BlockPos pos) -> {
+		Block block = world.getBlockState(pos).getBlock();
+		return block == Blocks.WATER || block == Blocks.FLOWING_WATER;
+	})).setHardness(3.5F));
+	public static final BlockBlockDetector lavaDetector = (BlockBlockDetector) RegUtil.regBlock(CreateBlockUtil.adapt("lava_detector", new BlockBlockDetector(Material.ROCK, MapColor.STONE, (World world, BlockPos pos) -> {
+		Block block = world.getBlockState(pos).getBlock();
+		return block == Blocks.LAVA || block == Blocks.FLOWING_LAVA;
+	})).setHardness(3.5F));
+	public static final BlockBlockDetector blockDetector = (BlockBlockDetector) RegUtil.regBlock(CreateBlockUtil.adapt("block_detector", new BlockBlockDetector(Material.ROCK, MapColor.STONE, (World world, BlockPos pos) -> {
+		IBlockState state = world.getBlockState(pos);
+		return !state.getBlock().isAir(state, world, pos);
+	})).setHardness(3.5F));
+	
 	public static final BlockDimensionGate endGate = (BlockDimensionGate) RegUtil.regBlock(CreateBlockUtil.adapt("end_gate", new BlockDimensionGate(1, Material.ROCK, MapColor.BLACK).setHardness(5.0F)));
 	
 	public static final BlockChargedIron chargedIron = RegUtil.regBlock(CreateBlockUtil.adapt("charged_iron_block", new BlockChargedIron()));

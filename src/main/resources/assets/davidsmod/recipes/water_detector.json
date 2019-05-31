@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{"item": "davidsmod:block_detector"},
+		{"item": "minecraft:bucket"}
+	],
+	"result": {"item": "davidsmod:water_detector"}
+}

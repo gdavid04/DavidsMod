@@ -55,6 +55,10 @@ tile.davidsmod\:redstone_capacitor.name=Redstone capacitor
 
 tile.davidsmod\:pressure_plate_in_stone.name=Pressure plate in stone
 
+tile.davidsmod\:water_detector.name=Water detector
+tile.davidsmod\:lava_detector.name=Lava detector
+tile.davidsmod\:block_detector.name=Block detector
+
 tile.davidsmod\:end_gate.name=End gate
 
 tile.davidsmod\:charged_iron_block.name=Charged iron block
