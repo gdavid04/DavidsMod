@@ -9,10 +9,12 @@ import gdavid.davidsmod.api.bots.PieceCategory;
 import gdavid.davidsmod.api.bots.PieceMod;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraft.block.Block;
 
@@ -20,6 +22,7 @@ import net.minecraft.block.Block;
 public class RegUtil {
 	
 	static ArrayList<Block> blocks = new ArrayList<Block>();
+	static HashMap<String, Class<? extends TileEntity>> tileEntities = new HashMap<String, Class<? extends TileEntity>>();
 	static ArrayList<Item> items = new ArrayList<Item>();
 	static HashMap<Block, ItemBlock> itemBlocks = new HashMap<Block, ItemBlock>();
 	static ArrayList<PieceCategory> pieceCategories = new ArrayList<PieceCategory>();
@@ -60,6 +63,10 @@ public class RegUtil {
 		for (Block b : blocks) {
 			regBlock(itemBlock, b);
 		}
+	}
+	
+	public static void regTe(String name, Class<? extends TileEntity> te) {
+		tileEntities.put(name, te);
 	}
 	
 	public static ItemBlock getItemBlock(Block block) {
@@ -116,6 +123,10 @@ public class RegUtil {
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		IForgeRegistry<Block> reg = event.getRegistry();
 		for (Block i : blocks) reg.register(i);
+		for (String id : tileEntities.keySet()) {
+			Class<? extends TileEntity> te = tileEntities.get(id);
+			GameRegistry.registerTileEntity(te, DavidsMod.modID + ":" + id);
+		}
 	}
 	
 	@SubscribeEvent

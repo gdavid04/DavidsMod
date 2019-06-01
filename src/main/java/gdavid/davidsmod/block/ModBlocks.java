@@ -51,6 +51,8 @@ public class ModBlocks {
 	
 	public static final BlockDimensionGate endGate = (BlockDimensionGate) regBlock(adapt("end_gate", new BlockDimensionGate(1, Material.ROCK, MapColor.BLACK).setHardness(5.0F)));
 	
+	public static final BlockStorageCrate storageCrate = regBlock(adapt("storage_crate", new BlockStorageCrate()));
+	
 	public static final BlockChargedIron chargedIron = regBlock(adapt("charged_iron_block", new BlockChargedIron()));
 	public static final BlockChargedRock chargedRock = regBlock(adapt("charged_rock", new BlockChargedRock()));
 	

@@ -14,6 +14,7 @@ import gdavid.davidsmod.item.ModItems;
 import gdavid.davidsmod.network.PacketHandler;
 import gdavid.davidsmod.proxy.CommonProxy;
 import gdavid.davidsmod.tab.TabDavidsmod;
+import gdavid.davidsmod.tile.ModTiles;
 import gdavid.davidsmod.world.WorldGenerator;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -52,6 +53,7 @@ public class DavidsMod {
 		DavidsModCrafting.init();
 		TabDavidsmod.get();
 		ModBlocks.reg();
+		ModTiles.reg();
 		ModItems.reg();
 		ModPieceCategories.reg();
 		ModPieces.reg();

@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SSS",
+		"SCS",
+		"SSS"
+	],
+	"key": {
+		"C": {"item": "minecraft:chest"},
+		"S": {"item": "minecraft:stick"}
+	},
+	"result": {"item": "davidsmod:storage_crate"}
+}

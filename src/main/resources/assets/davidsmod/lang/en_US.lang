@@ -63,6 +63,8 @@ tile.davidsmod\:block_detector.name=Block detector
 
 tile.davidsmod\:end_gate.name=End gate
 
+tile.davidsmod\:storage_crate.name=Storage crate
+
 tile.davidsmod\:charged_iron_block.name=Charged iron block
 tile.davidsmod\:charged_rock.name=Charged rock
 
