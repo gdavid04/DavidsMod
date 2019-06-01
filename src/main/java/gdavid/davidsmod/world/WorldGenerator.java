@@ -29,8 +29,18 @@ public class WorldGenerator implements IWorldGenerator {
 			generateOre(ModBlocks.fossils.getDefaultState(), world, random, x, z, 40, 128, 1 + random.nextInt(10), 4);
 			generateOre(ModBlocks.quartzOre.getDefaultState(), world, random, x, z, 0, 82, 2 + random.nextInt(4), 20);
 			floodLayer(Blocks.LAVA.getDefaultState(), world, random, x + 8, z + 8, 1, 5, 0.6f, (w, p) -> w.getBlockState(p).getBlock() != Blocks.BEDROCK);
+		} else if (type == DimensionType.NETHER) {
+			if (random.nextFloat() < 0.05f) {
+				int y;
+				for (y = 3; y < 128; y++) {
+					if (world.getBlockState(new BlockPos(x + 8, y, z + 8)).getBlock() == Blocks.AIR) break;
+				}
+				y -= 2;
+				loadStructure(world, new BlockPos(x + 8, y, z + 8), new ResourceLocation(DavidsMod.modID, "nether_witch_cauldron"));
+			}
 		} else if (type == DimensionType.THE_END) {
 			if (x % 256 == 0 && z % 256 == 0 && !(x == 0 && z == 0)) {
+				// FIXME witches don't spawn
 				loadStructure(world, new BlockPos(x + 8, world.getHeight(x + 8, z + 8), z + 8), new ResourceLocation(DavidsMod.modID, "end_return_portal"));
 			}
 		}
