@@ -23,6 +23,7 @@ public class ModItems {
 	public static final Item voidStar = regItem(create("void_star"));
 	public static final Item sand = regItem(create("sand"));
 	public static final Item bloodBottle = regItem(create("bottle_of_blood", 1));
+	public static final Item miracleDust = regItem(create("miracle_dust")); // TODO glow
 	
 	public static void reg() {
 		// used to explicitly initialize static fields, thus registering the items

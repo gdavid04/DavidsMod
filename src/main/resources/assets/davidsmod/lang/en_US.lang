@@ -29,6 +29,8 @@ item.davidsmod\:sand.name=Sand
 
 item.davidsmod\:bottle_of_blood.name=Bottle of blood
 
+item.davidsmod\:miracle_dust.name=Miracle dust
+
 tile.davidsmod\:stone_tile.name=Stone tile
 tile.davidsmod\:flint_block.name=Flint block
 tile.davidsmod\:smooth_oak_wood.name=Smooth oak wood
@@ -64,6 +66,8 @@ tile.davidsmod\:block_detector.name=Block detector
 tile.davidsmod\:end_gate.name=End gate
 
 tile.davidsmod\:storage_crate.name=Storage crate
+
+tile.davidsmod\:miracle_condenser.name=Miracle condenser
 
 tile.davidsmod\:charged_iron_block.name=Charged iron block
 tile.davidsmod\:charged_rock.name=Charged rock
