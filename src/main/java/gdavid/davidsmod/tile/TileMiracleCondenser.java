@@ -43,6 +43,10 @@ public class TileMiracleCondenser extends TileEntity implements ICapabilityProvi
 		return 30 * 20;
 	}
 	
+	public void tickCondensing() {
+		setCondenseProgress(getCondenseProgress() + getCondenseProgressPerTick());
+	}
+	
 	boolean condensing = false;
 	
 	public boolean isCondensing() {
@@ -66,6 +70,16 @@ public class TileMiracleCondenser extends TileEntity implements ICapabilityProvi
 		if (inv.insertItem(1, new ItemStack(ModItems.miracleDust), false).isEmpty()) {
 			condensing = false;
 			markDirty();
+		}
+	}
+	
+	public void continueCondensing() {
+		finishCondensing();
+		if (canStartCondensing()) {
+			inv.getStackInSlot(0).shrink(1);
+			setCondenseProgress(0);
+		} else {
+			world.notifyBlockUpdate(getPos(), world.getBlockState(getPos()), world.getBlockState(getPos()), 2);
 		}
 	}
 	
@@ -175,15 +189,12 @@ public class TileMiracleCondenser extends TileEntity implements ICapabilityProvi
 	@Override
 	public void update() {
 		if (isCondensing()) {
-			setCondenseProgress(getCondenseProgress() + getCondenseProgressPerTick());
+			tickCondensing();
 			if (getCondenseProgress() >= getRequiredCondenseProgress()) {
 				if (!world.isRemote) {
-					finishCondensing();
-					if (canStartCondensing()) {
-						startCondensing();
-					} else {
-						world.notifyBlockUpdate(getPos(), world.getBlockState(getPos()), world.getBlockState(getPos()), 2);
-					}
+					continueCondensing();
+				} else {
+					setCondenseProgress(0);
 				}
 			}
 		} else if (!world.isRemote) {
