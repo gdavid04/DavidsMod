@@ -23,6 +23,8 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileMiracleCondenser extends TileEntity implements ICapabilityProvider, ITickable {
 	
+	public static final int size = 2;
+	
 	int condenseProgress;
 	
 	public int getCondenseProgress() {
@@ -83,7 +85,7 @@ public class TileMiracleCondenser extends TileEntity implements ICapabilityProvi
 		}
 	}
 	
-	ItemStackHandler inv = new ItemStackHandler(2) {
+	ItemStackHandler inv = new ItemStackHandler(size) {
 		@Override
 		protected void onContentsChanged(int slot) {
 			TileMiracleCondenser.this.markDirty();

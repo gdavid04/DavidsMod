@@ -1,7 +1,6 @@
 package gdavid.davidsmod.inventory;
 
 import gdavid.davidsmod.tile.TileMiracleCondenser;
-import gdavid.davidsmod.tile.TileStorageCrate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
@@ -50,11 +49,11 @@ public class ContainerMiracleCondenser extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
-			if (index < TileStorageCrate.size) {
-				if (!this.mergeItemStack(itemstack1, TileStorageCrate.size, this.inventorySlots.size(), true)) {
+			if (index < TileMiracleCondenser.size) {
+				if (!this.mergeItemStack(itemstack1, TileMiracleCondenser.size, this.inventorySlots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
-			} else if (!this.mergeItemStack(itemstack1, 0, TileStorageCrate.size, false)) {
+			} else if (!this.mergeItemStack(itemstack1, 0, TileMiracleCondenser.size, false)) {
 				return ItemStack.EMPTY;
 			}
 			if (itemstack1.isEmpty()) {
