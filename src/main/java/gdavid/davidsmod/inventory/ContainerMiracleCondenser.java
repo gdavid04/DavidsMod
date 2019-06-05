@@ -2,12 +2,12 @@ package gdavid.davidsmod.inventory;
 
 import gdavid.davidsmod.tile.TileMiracleCondenser;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerMiracleCondenser extends Container {
 	
@@ -38,7 +38,7 @@ public class ContainerMiracleCondenser extends Container {
 	
 	void addOwnSlots() {
 		IItemHandler itemHandler = this.te.getInv();
-		addSlotToContainer(new FilteredSlot(itemHandler, 0, 53, 35, s -> s.getItem() == Items.GUNPOWDER));
+		addSlotToContainer(new SlotItemHandler(itemHandler, 0, 53, 35));
 		addSlotToContainer(new OutputSlot(itemHandler, 1, 116, 35));
 	}
 	
