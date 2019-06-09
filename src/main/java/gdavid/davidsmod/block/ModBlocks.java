@@ -54,7 +54,9 @@ public class ModBlocks {
 	public static final BlockStorageCrate storageCrate = regBlock(adapt("storage_crate", new BlockStorageCrate()));
 	
 	public static final BlockMiracleCondenser miracleCondenser = regBlock(adapt("miracle_condenser", new BlockMiracleCondenser()));
-	// TODO model
+	// TODO model, crafting
+	
+	public static final BlockEnderEnergyCondenser enderEnergyCondenser = regBlock(adapt("ender_energy_condenser", new BlockEnderEnergyCondenser()));
 	
 	public static final BlockChargedIron chargedIron = regBlock(adapt("charged_iron_block", new BlockChargedIron()));
 	public static final BlockChargedRock chargedRock = regBlock(adapt("charged_rock", new BlockChargedRock()));
