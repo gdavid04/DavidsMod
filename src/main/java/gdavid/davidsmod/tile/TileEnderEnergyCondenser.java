@@ -13,7 +13,7 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 	
 	int energy = 0;
 	public static final int limit = 1000;
-	int change = 40;
+	int change = 0;
 	int prev = 0;
 	int ptick = 0;
 	float clientEnergy = 0;
@@ -71,18 +71,19 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 	@Override
 	public void update() {
 		if (world.isRemote) {
-			if (world.provider.getDimensionType() == DimensionType.THE_END) {
-				clientEnergy += change / 40.0f;
-				energy = Math.round(clientEnergy);
-				if (energy > limit) {
-					energy = limit;
-					clientEnergy = limit;
-					change = 0;
-				} else if (energy < 0) {
-					energy = 0;
-					clientEnergy = 0;
-					change = 0;
-				}
+			clientEnergy += change / 40.0f;
+			if (world.provider.getDimensionType() == DimensionType.THE_END && energy < limit) {
+				clientEnergy++;
+			}
+			energy = Math.round(clientEnergy);
+			if (energy > limit) {
+				energy = limit;
+				clientEnergy = limit;
+				change = 0;
+			} else if (energy < 0) {
+				energy = 0;
+				clientEnergy = 0;
+				change = 0;
 			}
 		} else {
 			if (energy < limit && world.provider.getDimensionType() == DimensionType.THE_END) {
@@ -93,7 +94,11 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 			if (ptick == 40) {
 				ptick = 0;
 				int chg = energy - prev;
+				if (world.provider.getDimensionType() == DimensionType.THE_END) {
+					chg -= 40;
+				}
 				if (chg != change) {
+					change = chg;
 					world.notifyBlockUpdate(getPos(), world.getBlockState(getPos()), world.getBlockState(getPos()), 2);
 				}
 				prev = energy;
