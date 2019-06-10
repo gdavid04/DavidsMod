@@ -11,11 +11,12 @@ import net.minecraft.world.DimensionType;
 
 public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergyHandler, ITickable {
 	
-	public int energy = 0;
+	int energy = 0;
 	public static final int limit = 1000;
-	int change = 1;
+	int change = 40;
 	int prev = 0;
 	int ptick = 0;
+	float clientEnergy = 0;
 	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
@@ -24,6 +25,7 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 			energy = compound.getInteger("energy");
 		}
 		prev = energy;
+		clientEnergy = energy;
 	}
 	
 	@Override
@@ -45,6 +47,7 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 	public void handleUpdateTag(NBTTagCompound nbt) {
 		if (nbt.hasKey("energy")) {
 			energy = nbt.getInteger("energy");
+			clientEnergy = energy;
 		}
 		if (nbt.hasKey("change")) {
 			change = nbt.getInteger("change");
@@ -69,12 +72,15 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 	public void update() {
 		if (world.isRemote) {
 			if (world.provider.getDimensionType() == DimensionType.THE_END) {
-				energy += change;
+				clientEnergy += change / 40.0f;
+				energy = Math.round(clientEnergy);
 				if (energy > limit) {
 					energy = limit;
+					clientEnergy = limit;
 					change = 0;
 				} else if (energy < 0) {
 					energy = 0;
+					clientEnergy = 0;
 					change = 0;
 				}
 			}
