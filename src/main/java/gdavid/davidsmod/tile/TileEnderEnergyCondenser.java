@@ -109,6 +109,7 @@ public class TileEnderEnergyCondenser extends TileEntity implements IEnderEnergy
 	@Override
 	public void setEnderEnergy(int e) {
 		energy = e;
+		markDirty();
 	}
 	
 	@Override
