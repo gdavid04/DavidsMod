@@ -8,6 +8,7 @@ public class ModTiles {
 		regTe("storage_crate", TileStorageCrate.class);
 		regTe("miracle_condenser", TileMiracleCondenser.class);
 		regTe("ender_energy_condenser", TileEnderEnergyCondenser.class);
+		regTe("ender_energy_capacitor", TileEnderEnergyCapacitor.class);
 	}
 	
 }

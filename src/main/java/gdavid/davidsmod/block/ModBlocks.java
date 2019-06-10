@@ -57,6 +57,7 @@ public class ModBlocks {
 	// TODO model, crafting
 	
 	public static final BlockEnderEnergyCondenser enderEnergyCondenser = regBlock(adapt("ender_energy_condenser", new BlockEnderEnergyCondenser()));
+	public static final BlockEnderEnergyCapacitor enderEnergyCapacitor = regBlock(adapt("ender_energy_capacitor", new BlockEnderEnergyCapacitor()));
 	
 	public static final BlockChargedIron chargedIron = regBlock(adapt("charged_iron_block", new BlockChargedIron()));
 	public static final BlockChargedRock chargedRock = regBlock(adapt("charged_rock", new BlockChargedRock()));

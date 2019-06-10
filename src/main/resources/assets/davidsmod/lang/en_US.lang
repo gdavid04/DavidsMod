@@ -70,6 +70,7 @@ tile.davidsmod\:storage_crate.name=Storage crate
 tile.davidsmod\:miracle_condenser.name=Miracle condenser
 
 tile.davidsmod\:ender_energy_condenser.name=Ender energy condenser
+tile.davidsmod\:ender_energy_capacitor.name=Ender energy capacitor
 
 tile.davidsmod\:charged_iron_block.name=Charged iron block
 tile.davidsmod\:charged_rock.name=Charged rock
