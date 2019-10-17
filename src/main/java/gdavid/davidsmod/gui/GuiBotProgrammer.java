@@ -2,6 +2,7 @@ package gdavid.davidsmod.gui;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import gdavid.davidsmod.DavidsMod;
@@ -66,6 +67,9 @@ public class GuiBotProgrammer extends GuiScreen {
 	
 	@Override
 	public void updateScreen() {
+		if (Calendar.getInstance().get(Calendar.MONTH) == Calendar.APRIL && Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 1) {
+			fontRenderer = mc.standardGalacticFontRenderer;
+		}
 		ItemStack stack = player.getHeldItem(hand);
 		if (stack.getItem() != ModItems.botProgrammer) {
 			this.mc.displayGuiScreen(null);
