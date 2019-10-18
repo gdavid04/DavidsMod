@@ -1,10 +1,9 @@
 package gdavid.davidsmod.item;
 
-import java.util.Map;
-import java.util.function.BiFunction;
+import java.util.ArrayList;
 
+import gdavid.davidsmod.api.BlockTransformation;
 import net.minecraft.block.BlockDispenser;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.dispenser.IPosition;
@@ -19,9 +18,9 @@ import net.minecraft.world.World;
 
 public class ItemBlockTransformer extends Item {
 	
-	public final Map<IBlockState, BiFunction<World, BlockPos, Boolean>> handlers;
+	public final ArrayList<BlockTransformation> handlers;
 	
-	public ItemBlockTransformer(Map<IBlockState, BiFunction<World, BlockPos, Boolean>> handlers) {
+	public ItemBlockTransformer(ArrayList<BlockTransformation> handlers) {
 		this.handlers = handlers;
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, new BehaviorDefaultDispenseItem() {
 			@Override
@@ -29,12 +28,14 @@ public class ItemBlockTransformer extends Item {
 				IPosition ipos = BlockDispenser.getDispensePosition(source);
 				BlockPos pos = new BlockPos(ipos.getX(), ipos.getY(), ipos.getZ());
 				World world = source.getWorld();
-				BiFunction<World, BlockPos, Boolean> handler = handlers.get(world.getBlockState(pos));
-				if (handler != null && !world.isRemote && handler.apply(world, pos)) {
-					if (isDamageable()) {
-						stack.damageItem(1, null);
-					} else {
-						stack.shrink(1);
+				if (!world.isRemote) {
+					BlockTransformation handler = firstHandler(world, pos);
+					if (handler != null && handler.Apply(world, pos)) {
+						if (isDamageable()) {
+							stack.damageItem(1, null);
+						} else {
+							stack.shrink(1);
+						}
 					}
 				}
 				return stack;
@@ -42,14 +43,13 @@ public class ItemBlockTransformer extends Item {
 		});
 	}
 	
-	// TODO hud showing what will be the result
 	// TODO advanced version with wheel hud for multiple options (storing selected in nbt for each blockstate)
 	
 	@Override
 	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-		BiFunction<World, BlockPos, Boolean> handler = handlers.get(world.getBlockState(pos));
+		BlockTransformation handler = firstHandler(world, pos);
 		if (handler != null) {
-			if (!world.isRemote && handler.apply(world, pos) && !player.isCreative()) {
+			if (!world.isRemote && handler.Apply(world, pos) && !player.isCreative()) {
 				if (isDamageable()) {
 					player.getHeldItem(hand).damageItem(1, player);
 				} else {
@@ -59,6 +59,15 @@ public class ItemBlockTransformer extends Item {
 			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.FAIL;
+	}
+	
+	public BlockTransformation firstHandler(World world, BlockPos pos) {
+		for (BlockTransformation handler : handlers) {
+			if (handler.Match(world, pos)) {
+				return handler;
+			}
+		}
+		return null;
 	}
 	
 }

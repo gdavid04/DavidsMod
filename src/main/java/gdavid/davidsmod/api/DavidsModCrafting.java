@@ -1,8 +1,6 @@
 package gdavid.davidsmod.api;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.BiFunction;
+import java.util.ArrayList;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -10,23 +8,36 @@ import net.minecraft.world.World;
 
 public class DavidsModCrafting {
 	
-	public static Map<IBlockState, BiFunction<World, BlockPos, Boolean>> mossBall;
+	public static ArrayList<BlockTransformation> mossBall;
 	
-	public static void addBlockConvertion(Map<IBlockState, BiFunction<World, BlockPos, Boolean>> with, IBlockState from, IBlockState to) {
-		addBlockConvertion(true, with, from, to);
+	public static void addBlockConversion(ArrayList<BlockTransformation> with, IBlockState from, IBlockState to) {
+		addBlockConversion(with, from, to, true);
 	}
 	
-	public static void addBlockConvertion(boolean consume, Map<IBlockState, BiFunction<World, BlockPos, Boolean>> with, IBlockState from, IBlockState to) {
-		with.put(from, (World world, BlockPos pos) -> {
-			if (!world.isRemote) {
-				world.setBlockState(pos, to, 3);
+	public static void addBlockConversion(ArrayList<BlockTransformation> with, IBlockState from, IBlockState to, boolean consume) {
+		with.add(new BlockTransformation() {
+			
+			@Override
+			public boolean Match(World world, BlockPos pos) {
+				return world.getBlockState(pos) == from;
 			}
-			return consume;
+			
+			@Override
+			public boolean Apply(World world, BlockPos pos) {
+				world.setBlockState(pos, to, 3);
+				return consume;
+			}
+			
+			@Override
+			public IBlockState GetPreview(World world, BlockPos pos) {
+				return to;
+			}
+			
 		});
 	}
 	
 	public static void init() {
-		mossBall = new HashMap<IBlockState, BiFunction<World, BlockPos, Boolean>>();
+		mossBall = new ArrayList<BlockTransformation>();
 	}
 	
 }

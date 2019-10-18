@@ -11,14 +11,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModCrafting {
 	
 	public static void reg() {
-		DavidsModCrafting.addBlockConvertion(DavidsModCrafting.mossBall,
+		DavidsModCrafting.addBlockConversion(DavidsModCrafting.mossBall,
 			Blocks.COBBLESTONE.getDefaultState(),
 			Blocks.MOSSY_COBBLESTONE.getDefaultState());
-		DavidsModCrafting.addBlockConvertion(DavidsModCrafting.mossBall,
+		DavidsModCrafting.addBlockConversion(DavidsModCrafting.mossBall,
 			Blocks.STONEBRICK.getDefaultState(),
 			Blocks.STONEBRICK.getDefaultState()
 			.withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.MOSSY));
-		DavidsModCrafting.addBlockConvertion(DavidsModCrafting.mossBall,
+		DavidsModCrafting.addBlockConversion(DavidsModCrafting.mossBall,
 			Blocks.COBBLESTONE_WALL.getDefaultState(),
 			Blocks.COBBLESTONE_WALL.getDefaultState()
 			.withProperty(BlockWall.VARIANT, BlockWall.EnumType.MOSSY));
